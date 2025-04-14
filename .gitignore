@@ -1,0 +1,97 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.conda/
+conda-env/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+.nox/
+
+# ML specific
+*.h5
+*.pkl
+*.model
+models/
+checkpoints/
+runs/
+logs/
+mlruns/
+.vector_cache/
+wandb/
+
+# Data (uncomment if needed)
+# data/
+# datasets/
+# *.csv
+# *.json
+# *.jsonl
+# *.tsv
+# *.xlsx
+
+# Logs
+*.log
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Ruff
+.ruff_cache/
+
+# Distribution / packaging
+.Python
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Documentation
+docs/_build/
+site/
+
+# Misc
+.cache
+.coverage.*
+.hypothesis/
+.python-version

@@ -1,0 +1,1302 @@
+[
+  {
+    "question_id": "81",
+    "question": "Which of the following characteristics of a programming language is best specified using a context-free grammar?",
+    "options": [
+      "Identifier length",
+      "Maximum level of nesting",
+      "Operator precedence",
+      "Type compatibility"
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is: **C) Operator precedence**\n\n**Explanation**:  \nA context-free grammar (CFG) is a formal grammar that can generate all possible strings in a given language. It is particularly well-suited for defining the syntax of programming languages, including the rules that govern the order of operations, known as operator precedence. \n\n- **Identifier length** (Option A) is usually defined by lexical rules rather than grammar.\n- **Maximum level of nesting** (Option B) can be expressed with restrictions but is not typically described by context-free grammars alone.\n- **Type compatibility** (Option D) involves semantics and cannot be fully captured by grammar.\n\nOperator precedence, on the other hand, can be effectively modeled using a CFG by specifying how different operators relate to each other in terms of their binding strength. Thus, the best characteristic defined by a context-free grammar is operator precedence.",
+    "grades": []
+  },
+  {
+    "question_id": "14",
+    "question": "Let A and B be two sets of words (strings) from \u03a3*, for some alphabet of symbols \u03a3. Suppose that B is a subset of A. Which of the following statements must always be true of A and B ?\nI. If A is finite, then B is finite.\nII. If A is regular, then B is regular.\nIII. If A is context-free, then B is context-free.",
+    "options": [
+      "I only",
+      "II only",
+      "III only",
+      "I and II only"
+    ],
+    "ground_truth": 0,
+    "response": "The correct answer is **A) I only**.\n\n**Explanation:**\n\nI. If A is finite, then B is finite.  \nThis statement is true. Since B is a subset of A, if A contains a finite number of elements, then B, being a subset, can contain at most that many elements. Thus, B must also be finite.\n\nII. If A is regular, then B is regular.  \nThis statement is not necessarily true. While regular languages are closed under intersection and union, a subset of a regular language is not guaranteed to be regular. For example, consider the regular language A = {a^n b^n | n \u2265 0} (which is not regular), and the subset B = {a^n b^n | n is even}. Here, B can be non-regular even if A were regular.\n\nIII. If A is context-free, then B is context-free.  \nThis statement is also not necessarily true. Similar to the regular case, a subset of a context-free language is not guaranteed to be context-free. For example, the context-free language A = {a^n b^n c^n | n \u2265 0} is context-free, but the subset B = {a^n b^n c^n | n is prime} is not context-free.\n\nTherefore, only statement I is always true, making option A the correct choice.",
+    "grades": []
+  },
+  {
+    "question_id": "3",
+    "question": "You want to cluster 7 points into 3 clusters using the k-Means Clustering algorithm. Suppose after the first iteration, clusters C1, C2 and C3 contain the following two-dimensional points: C1 contains the 2 points: {(0,6), (6,0)} C2 contains the 3 points: {(2,2), (4,4), (6,6)} C3 contains the 2 points: {(5,5), (7,7)} What are the cluster centers computed for these 3 clusters?",
+    "options": [
+      "C1: (3,3), C2: (4,4), C3: (6,6)",
+      "C1: (3,3), C2: (6,6), C3: (12,12)",
+      "C1: (6,6), C2: (12,12), C3: (12,12)",
+      "C1: (0,0), C2: (48,48), C3: (35,35)"
+    ],
+    "ground_truth": 0,
+    "response": "To calculate the cluster centers for the three clusters (C1, C2, C3), we need to find the mean of the points in each cluster.\n\n1. **Cluster C1** contains the points {(0, 6), (6, 0)}.  \n   To find the center (mean) of C1:  \n   \\[\n   \\text{Mean}_\\text{C1} = \\left( \\frac{0 + 6}{2}, \\frac{6 + 0}{2} \\right) = \\left( 3, 3 \\right)\n   \\]\n\n2. **Cluster C2** contains the points {(2, 2), (4, 4), (6, 6)}.  \n   To find the center (mean) of C2:  \n   \\[\n   \\text{Mean}_\\text{C2} = \\left( \\frac{2 + 4 + 6}{3}, \\frac{2 + 4 + 6}{3} \\right) = \\left( \\frac{12}{3}, \\frac{12}{3} \\right) = \\left( 4, 4 \\right)\n   \\]\n\n3. **Cluster C3** contains the points {(5, 5), (7, 7)}.  \n   To find the center (mean) of C3:  \n   \\[\n   \\text{Mean}_\\text{C3} = \\left( \\frac{5 + 7}{2}, \\frac{5 + 7}{2} \\right) = \\left( \\frac{12}{2}, \\frac{12}{2} \\right) = \\left( 6, 6 \\right)\n   \\]\n\nNow we can summarize the computed cluster centers:\n- C1: (3, 3)\n- C2: (4, 4)\n- C3: (6, 6)\n\nThus, the correct option is:  \n**A) C1: (3,3), C2: (4,4), C3: (6,6)**",
+    "grades": []
+  },
+  {
+    "question_id": "94",
+    "question": "Let M be a single-tape, deterministic Turing machine with tape alphabet {blank,0,1}, and let C denote the (possibly infinite) computation of M starting with a blank tape. The input to each problem below is M, together with a positive integer n. Which of the following problems is (are) decidable?\nI. The computation C lasts for at least n steps.\nII. The computation C lasts for at least n steps, and M prints a 1 at some point after the nth step.\nIII. M scans at least n distinct tape squares during the computation C.",
+    "options": [
+      "None",
+      "III only",
+      "I and II only",
+      "I and III only"
+    ],
+    "ground_truth": 3,
+    "response": "To determine the decidability of the given problems regarding the computation of a single-tape deterministic Turing machine \\( M \\) starting with a blank tape, we analyze each problem:\n\n**I. The computation C lasts for at least n steps.**  \nThis problem is undecidable. The reason is that it involves predicting the number of steps a Turing machine will take, which can be related to the Halting Problem. There is no general algorithm that can determine if a Turing machine will take at least \\( n \\) steps before halting or entering a loop.\n\n**II. The computation C lasts for at least n steps, and M prints a 1 at some point after the nth step.**  \nThis problem is also undecidable. It combines the undecidable nature of determining whether the machine takes at least \\( n \\) steps with the additional condition of whether it prints a 1 after those steps. Since we cannot predict the behavior of the Turing machine, we cannot decide this problem either.\n\n**III. M scans at least n distinct tape squares during the computation C.**  \nThis problem is decidable. A single-tape deterministic Turing machine can be simulated step-by-step, and we can keep track of how many distinct tape squares have been scanned. If the Turing machine halts before scanning \\( n \\) distinct squares, we can determine that it has not scanned enough. If it does not halt, we can keep counting distinct squares until we reach \\( n \\) or determine that the machine will continue indefinitely. Thus, this problem can be decided.\n\nBased on the analysis:\n\n- I is undecidable.\n- II is undecidable.\n- III is decidable.\n\nTherefore, the correct answer is **B) III only**.",
+    "grades": []
+  },
+  {
+    "question_id": "35",
+    "question": "Which of the following statements about a remote procedure call is true?",
+    "options": [
+      "It is used to call procedures with addresses that are farther than 2^16 bytes away.",
+      "It cannot return a value.",
+      "It cannot pass parameters by reference.",
+      "It cannot call procedures implemented in a different language."
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is **A) It is used to call procedures with addresses that are farther than 2^16 bytes away.**\n\n**Explanation:**  \nRemote Procedure Call (RPC) is a protocol that allows a program to execute procedures on a remote server as if they were local calls. While the other options present limitations that are incorrect, option A highlights the capability of RPC to handle calls that can reach across different networks and locations, thus being able to address procedures that may be far beyond the traditional memory constraints. \n\n- Option B is incorrect because RPC can return values.\n- Option C is incorrect because RPC can pass parameters by reference, depending on the implementation.\n- Option D is incorrect as RPC can invoke procedures written in different programming languages, as long as there is a compatible interface for communication.",
+    "grades": []
+  },
+  {
+    "question_id": "31",
+    "question": "In a height-balanced binary search tree, the heights of the left and right descendents of any node differ by at most 1. Which of the following are true of such a tree?\nI. Worst-case search time is logarithmic in the number of nodes.\nII. Average-case search time is logarithmic in the number of nodes.\nIII. Best-case search time is proportional to the height of the tree.\nIV. The height of the tree is logarithmic in the number of nodes.",
+    "options": [
+      "I and III only",
+      "II and III only",
+      "II and IV only",
+      "I, II, and IV"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is **D) I, II, and IV**.\n\n**Explanation:**\n\nI. **Worst-case search time is logarithmic in the number of nodes.**  \nFor a height-balanced binary search tree (such as an AVL tree), the worst-case search time occurs when you traverse from the root to a leaf node. Since the height of the tree is kept balanced (differing by at most 1 between any two child nodes), the height is logarithmic relative to the number of nodes. Thus, the worst-case search time is indeed O(log n).\n\nII. **Average-case search time is logarithmic in the number of nodes.**  \nIn a height-balanced binary search tree, the average-case search time also tends to be logarithmic. This is because the tree remains balanced, and the average number of comparisons needed to find an element will also be proportional to the height of the tree, which is logarithmic in the number of nodes.\n\nIII. **Best-case search time is proportional to the height of the tree.**  \nThe best-case search time occurs when the desired element is found at the root, which takes constant time O(1). Therefore, this statement is misleading in the context of \"proportional to the height of the tree\" since the height could be greater than 1. This statement is not true in the way it is stated.\n\nIV. **The height of the tree is logarithmic in the number of nodes.**  \nIn a height-balanced binary search tree, the height is maintained to be O(log n) due to the balancing criteria. This ensures that the tree remains efficient for search operations.\n\nThus, statements I, II, and IV are true, while III is not. Therefore, the correct answer is **D) I, II, and IV**.",
+    "grades": []
+  },
+  {
+    "question_id": "28",
+    "question": "Languages with a structure that implements abstract data types (e.g., a C++ class) can prevent access to components of this structure by all operations except those that are part of this structure. However, definitions of such a structure often contain declarations of components of the structure (e.g., the header file for a C++ class may contain declarations of its private components). For such a language, an object's name could be bound at run time to stack storage for its component values (direct representation) or to a stack pointer referencing heap storage for its component values (indirect representation). Which of the following statements about comparisons between direct and indirect representations is (are) true?\nI. Indirect representation noticeably increases compilation time.\nII. Direct representation decreases the time needed to access components of a variable.\nIII. When the storage size of some private component of a variable changes, indirect representation minimizes the number of recompilations of source modules that must be performed.",
+    "options": [
+      "I only",
+      "III only",
+      "I and II only",
+      "II and III only"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is **D) II and III only**.\n\n**Explanation:**\n\n- **Statement I**: Indirect representation may not necessarily increase compilation time significantly; it is more related to run-time efficiency and code complexity rather than direct compilation time. Therefore, this statement is not universally true.\n\n- **Statement II**: Direct representation uses a fixed memory location for the component values, which allows for faster access compared to indirect representation, where an additional level of indirection (dereferencing a pointer) is needed to access the values. Thus, this statement is true.\n\n- **Statement III**: Indirect representation allows changing the size of components without needing to recompile all code that uses the structure, as the actual size is not tightly coupled with the structure's definition. Instead, only the pointer needs to be adjusted. Thus, this statement is true.\n\nSince statements II and III are true, the correct answer is **D) II and III only**.",
+    "grades": []
+  },
+  {
+    "question_id": "17",
+    "question": "The language {ww | w in (0 + 1)*} is",
+    "options": [
+      "not accepted by any Turing machine",
+      "accepted by some Turing machine, but by no pushdown automaton",
+      "accepted by some pushdown automaton, but not context-free",
+      "context-free, but not regular"
+    ],
+    "ground_truth": 1,
+    "response": "The correct option is: **B) accepted by some Turing machine, but by no pushdown automaton.**\n\n### Explanation:\nThe language described by {ww | w in (0 + 1)*} consists of strings that are formed by concatenating a string with itself, such as \"00\", \"11\", \"0101\", etc. This language is known to be context-sensitive.\n\n1. **Not Regular**: This language cannot be accepted by a finite automaton because it requires memory to remember the first half of the string to compare it with the second half.\n\n2. **Not Context-Free**: The language is also not context-free, which can be shown using the pumping lemma for context-free languages. A context-free grammar (or a pushdown automaton) would be unable to handle the requirement of matching the two halves of the string.\n\n3. **Accepted by Turing Machines**: However, this language can be accepted by a Turing machine, which has the computational power to manage this type of string matching by using its tape to store the first half of the string and then comparing it to the second half.\n\nThus, the language {ww | w in (0 + 1)*} is accepted by some Turing machine, but it cannot be accepted by any pushdown automaton, making option B the correct answer.",
+    "grades": []
+  },
+  {
+    "question_id": "13",
+    "question": "TCP protocol is responsible (among other things) for",
+    "options": [
+      "Routing packets through the network",
+      "Reliable delivery of packets between directly connected machines",
+      "Reliable delivery of large (multi-packet) messages between machines that are not necessarily directly connected",
+      "Dealing with differences among operating system architectures"
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is: **C) Reliable delivery of large (multi-packet) messages between machines that are not necessarily directly connected.**\n\n**Explanation:**  \nTCP (Transmission Control Protocol) is a transport layer protocol that provides reliable communication between devices over a network. It ensures that data is delivered in the correct order and without errors, making it suitable for large messages that may be split into multiple packets. TCP manages the complexities of establishing connections, maintaining the state of the connection, and handling retransmissions if packets are lost, which is crucial for communication across networks that do not rely on direct connections. Options A and B are incorrect because routing is handled by network layer protocols like IP, and TCP does not limit its reliability to directly connected machines. Option D is also incorrect as TCP does not specifically deal with operating system architecture differences; that role is more aligned with application layer protocols and APIs.",
+    "grades": []
+  },
+  {
+    "question_id": "86",
+    "question": "Which of the following problems can be solved by a standard greedy algorithm?\nI. Finding a minimum spanning tree in an undirected graph with positive-integer edge weights\nII. Finding a maximum clique in an undirected graph\nIII. Finding a maximum flow from a source node to a sink node in a directed graph with positive-integer edge capacities",
+    "options": [
+      "I only",
+      "II only",
+      "III only",
+      "I and II only"
+    ],
+    "ground_truth": 0,
+    "response": "The correct option is **A) I only**.\n\n**Explanation:**\n1. **Finding a minimum spanning tree in an undirected graph with positive-integer edge weights (I)**: This problem can be effectively solved using a greedy algorithm. Algorithms like Prim's or Kruskal's are classic examples of greedy algorithms that find the minimum spanning tree by choosing edges based on their weights.\n\n2. **Finding a maximum clique in an undirected graph (II)**: This problem is NP-hard and does not have a known greedy algorithm that can solve it optimally. While there are heuristic and approximation algorithms for finding cliques, they do not guarantee the maximum clique.\n\n3. **Finding a maximum flow from a source node to a sink node in a directed graph with positive-integer edge capacities (III)**: This problem is best solved using the Ford-Fulkerson method or the Edmonds-Karp algorithm, which are based on augmenting paths and do not operate in a greedy manner. Hence, this problem is not suited for a standard greedy approach. \n\nTherefore, only the first problem (I) can be solved by a standard greedy algorithm, making option A the correct answer.",
+    "grades": []
+  },
+  {
+    "question_id": "69",
+    "question": "Assume that a debugger places a breakpoint at a load instruction at virtual address 0x77E81234 (hexadecimal notation) in a debugged process P. If the text segment of P begins at 0x77E80000 in P\u2019s virtual address space and if the debugger has mapped this same text segment at 0x01000000 in its virtual address space, which of the following is the virtual address used by the debugger in its WRITE operation, along with a description of how the debugger has mapped the virtual memory page containing this address?",
+    "options": [
+      "0x01001234; page mapped with READ/WRITE access",
+      "0x01001234; page mapped with COPY-ON-WRITE access",
+      "0x76E81234; page mapped with READ/WRITE access",
+      "0x76E81234; page mapped with COPY-ON-WRITE access"
+    ],
+    "ground_truth": 0,
+    "response": "The correct option is **A) 0x01001234; page mapped with READ/WRITE access**. \n\n### Explanation:\n\n1. **Understanding Virtual Addresses**: The original virtual address in process P for the load instruction is 0x77E81234. The text segment of process P begins at 0x77E80000. The offset from the start of the text segment is calculated as:\n\n   \\[\n   0x77E81234 - 0x77E80000 = 0x00001234\n   \\]\n\n2. **Mapping in the Debugger**: The debugger maps the text segment of P at a different base address, which is 0x01000000. To find the corresponding address in the debugger's space, we add the offset we calculated to the debugger's base address:\n\n   \\[\n   0x01000000 + 0x00001234 = 0x01001234\n   \\]\n\n   This means the load instruction at 0x77E81234 in process P corresponds to 0x01001234 in the debugger\u2019s address space.\n\n3. **Access Type**: The debugger needs to write to this address (since it is placing a breakpoint), which typically requires at least READ/WRITE access. COPY-ON-WRITE access is generally used for shared pages or when the memory is intended to be modified without affecting the original, but in this case, the debugger is writing directly to this page, so READ/WRITE access is appropriate.\n\nThus, the answer is **A) 0x01001234; page mapped with READ/WRITE access**.",
+    "grades": []
+  },
+  {
+    "question_id": "11",
+    "question": "If p(x) is the minimal-degree interpolating polynomial for the real-valued function f(x) at the n + 1 distinct real numbers x0, .... xn what is the maximum possible degree of p(x)?",
+    "options": [
+      "n",
+      "n + 1",
+      "n + 2",
+      "2n"
+    ],
+    "ground_truth": 0,
+    "response": "The correct option is **B) n + 1**.\n\n**Explanation:**  \nThe minimal-degree interpolating polynomial for a function \\( f(x) \\) at \\( n + 1 \\) distinct real numbers \\( x_0, x_1, \\ldots, x_n \\) is determined by the requirement that it passes through all \\( n + 1 \\) points. The degree of a polynomial that can be uniquely defined to pass through \\( n + 1 \\) points is at most \\( n \\) if the points are not all in a straight line (like in the case of multiple points having the same y-value). However, because we are considering distinct real numbers, the polynomial that exactly fits these \\( n + 1 \\) points can have a maximum degree of \\( n \\), but to allow for unique solutions for interpolation, the degree is \\( n + 1 \\) in general. \n\nThus, the polynomial \\( p(x) \\) can be constructed as an \\( n \\)-degree polynomial that has \\( n + 1 \\) coefficients, which corresponds to a maximum degree of \\( n + 1 \\). Therefore, the maximum possible degree of \\( p(x) \\) is \\( n + 1 \\).",
+    "grades": []
+  },
+  {
+    "question_id": "75",
+    "question": "Hash tables can contribute to an efficient average-case solution for all of the problems described below EXCEPT:",
+    "options": [
+      "Counting distinct values: Given a set of n keys, determine the number of distinct key values.",
+      "Dynamic dictionary: Support the operations of insert, delete, and search in a dictionary.",
+      "Range search: Given values a and b, find all the records whose key value is in the range a, b.",
+      "Symbol table lookup: Given a program identifier, find its type and address."
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is: **C) Range search: Given values a and b, find all the records whose key value is in the range a, b.**\n\n**Explanation:**\nHash tables are excellent for average-case scenarios involving insertions, deletions, and lookups (such as in options A, B, and D) because they provide average-case O(1) time complexity for these operations. \n\nHowever, for range search (option C), hash tables are not well-suited because they do not maintain any order among the keys. Hash tables allow for quick access to individual keys but do not allow for efficient retrieval of keys within a specific range. To perform a range search efficiently, data structures like balanced binary search trees (e.g., AVL trees, Red-Black trees) or B-trees are more appropriate, as they maintain order and can perform range queries in O(log n) time. Thus, option C is the exception where hash tables do not contribute to an efficient average-case solution.",
+    "grades": []
+  },
+  {
+    "question_id": "54",
+    "question": "Consider the following equations concerning a stack module that has the operations Push, Pop, Top, and IsEmpty. Which of the equations does NOT represent the conventional semantics of a stack?",
+    "options": [
+      "IsEmpty(Push(Stack,Elem)) = true",
+      "Pop(Push(Stack,Elem)) = Stack",
+      "Top(Push(Stack,Elem)) = Elem",
+      "IsEmpty(Push(Push(Stack,Elem1),Elem2)) = false"
+    ],
+    "ground_truth": 0,
+    "response": "The correct option that does NOT represent the conventional semantics of a stack is:\n\n**A) IsEmpty(Push(Stack,Elem)) = true**\n\n**Explanation:**\nIn a stack, the operation `Push(Stack, Elem)` adds an element to the top of the stack. Therefore, after pushing an element onto the stack, the stack cannot be empty; it will contain at least one element (the one that was just pushed). Thus, the expression `IsEmpty(Push(Stack,Elem))` should return `false`, not `true`. \n\nThe other options correctly represent the semantics of stack operations:\n- **B)** `Pop(Push(Stack,Elem)) = Stack` indicates that popping the top element off the stack after pushing it returns the stack to its previous state.\n- **C)** `Top(Push(Stack,Elem)) = Elem` indicates that the top element after pushing is the element that was just pushed.\n- **D)** `IsEmpty(Push(Push(Stack,Elem1),Elem2)) = false` correctly states that after pushing two elements onto the stack, it is not empty.",
+    "grades": []
+  },
+  {
+    "question_id": "4",
+    "question": "Any set of Boolean operators that is sufficient to represent all Boolean expressions is said to be complete. Which of the following is NOT complete?",
+    "options": [
+      "{AND, NOT}",
+      "{NOT, OR}",
+      "{AND, OR}",
+      "{NAND}"
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is C) {AND, OR}.\n\n**Explanation:** A complete set of Boolean operators can be used to express any Boolean expression. \n\n- **{AND, NOT}** is complete because you can express all Boolean operations using these two operators.\n- **{NOT, OR}** is also complete for the same reason.\n- **{NAND}** is complete because the NAND operator can be used to express any Boolean expression by appropriately combining it.\n\nHowever, the set **{AND, OR}** is **not complete** because you cannot express the NOT operation using only AND and OR. This means you cannot represent all possible Boolean expressions with just AND and OR. \n\nThus, the correct answer is C) {AND, OR}.",
+    "grades": []
+  },
+  {
+    "question_id": "97",
+    "question": "In a pipelined RISC computer where all arithmetic instructions have the same CPI (cycles per instruction), which of the following actions would improve the execution time of a typical program?\nI. Increasing the clock cycle rate\nII. Disallowing any forwarding in the pipeline\nIII. Doubling the sizes of the instruction cache and the data cache without changing the clock cycle time",
+    "options": [
+      "I only",
+      "II only",
+      "III only",
+      "I and III"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is **D) I and III**.\n\n**Explanation:**\n\nI. **Increasing the clock cycle rate**: If the clock cycle rate is increased, the execution time can be reduced because the processor can execute more cycles in a given period of time. Since all arithmetic instructions have the same CPI, decreasing the time for each cycle directly improves the overall execution time.\n\nII. **Disallowing any forwarding in the pipeline**: Forwarding (or data hazard forwarding) allows the pipeline to use the result of an instruction before it has been written back to the register file, which improves efficiency by reducing stalls. Disallowing forwarding would likely introduce more stalls in the pipeline, thus increasing execution time instead of improving it.\n\nIII. **Doubling the sizes of the instruction cache and the data cache without changing the clock cycle time**: Increasing the cache sizes can reduce cache misses, which leads to fewer stalls and better performance. If the program can fit more of its working set into the caches, it will spend less time waiting for data to be fetched from slower memory, thereby improving execution time.\n\nSince actions I and III contribute positively to improving execution time while action II has a negative impact, the correct answer is D) I and III.",
+    "grades": []
+  },
+  {
+    "question_id": "88",
+    "question": "One approach to handling fuzzy logic data might be to design a computer using ternary (base-3) logic so that data could be stored as \u201ctrue,\u201d \u201cfalse,\u201d and \u201cunknown.\u201d If each ternary logic element is called a flit, how many flits are required to represent at least 256 different values?",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "ground_truth": 2,
+    "response": "To determine how many flits are required to represent at least 256 different values using ternary logic (base-3), we need to find the smallest integer \\( n \\) such that \\( 3^n \\geq 256 \\).\n\nLet's calculate the powers of 3:\n\n- \\( 3^1 = 3 \\)\n- \\( 3^2 = 9 \\)\n- \\( 3^3 = 27 \\)\n- \\( 3^4 = 81 \\)\n- \\( 3^5 = 243 \\)\n- \\( 3^6 = 729 \\)\n\nFrom the calculations above, we can see:\n- \\( 3^5 = 243 \\) which is less than 256.\n- \\( 3^6 = 729 \\) which is greater than 256.\n\nThis means that we need at least 6 flits to represent 256 different values, as 5 flits (which can represent up to 243 values) is insufficient.\n\nThus, the correct answer is:\n\n**C) 6**",
+    "grades": []
+  },
+  {
+    "question_id": "27",
+    "question": "Which of the following algorithms has running time \u0398(n^2) in the worst case but \u0398(n log n) on average?",
+    "options": [
+      "Bubblesort",
+      "Mergesort",
+      "Heapsort",
+      "Quicksort"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is: **D) Quicksort**\n\n**Explanation:**  \nQuicksort is a divide-and-conquer sorting algorithm that, on average, has a running time of \u0398(n log n). However, in the worst case (which occurs when the pivot elements are poorly chosen, such as always picking the smallest or largest element in a sorted list), its running time can degrade to \u0398(n^2). \n\nIn contrast:\n- **A) Bubblesort** has a worst-case and average-case running time of \u0398(n^2).\n- **B) Mergesort** has a consistent running time of \u0398(n log n) for both average and worst cases.\n- **C) Heapsort** also has a running time of \u0398(n log n) in both cases.\n\nThus, Quicksort is the only algorithm listed that fits the criteria of having a worst-case running time of \u0398(n^2) and an average-case running time of \u0398(n log n).",
+    "grades": []
+  },
+  {
+    "question_id": "29",
+    "question": "Which of the following is NOT a property of bitmap graphics?",
+    "options": [
+      "Fast hardware exists to move blocks of pixels efficiently.",
+      "Realistic lighting and shading can be done.",
+      "All line segments can be displayed as straight.",
+      "Polygons can be filled with solid colors and textures."
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is **C) All line segments can be displayed as straight.**\n\n**Explanation:** Bitmap graphics are made up of pixels, and when it comes to representing line segments, they can only approximate straight lines due to their pixelated nature. This means that diagonal lines, for example, may appear jagged or \"stair-stepped\" because the resolution of the bitmap determines how accurately the line can be rendered. Unlike vector graphics, which mathematically define lines and can represent them as perfectly straight, bitmap graphics do not have this capability. Therefore, option C is not a property of bitmap graphics.",
+    "grades": []
+  },
+  {
+    "question_id": "64",
+    "question": "Which of the following is not a sentence that is generated by the grammar A -> BC, B -> x|Bx, C -> B|D, D -> y|Ey, E -> z?",
+    "options": [
+      "xyz",
+      "xy",
+      "xxzy",
+      "xxxxy"
+    ],
+    "ground_truth": 0,
+    "response": "To determine which option is not a sentence generated by the given grammar, let's analyze the grammar rules:\n\n1. **A -> BC**: A generates a string made up of two parts: one generated by B and one by C.\n2. **B -> x | Bx**: B generates one or more 'x's. It can generate 'x', 'xx', 'xxx', and so on.\n3. **C -> B | D**: C can either generate strings from B or from D.\n4. **D -> y | Ey**: D can generate 'y' and can also generate strings that start with an 'E' followed by 'y'. \n5. **E -> z**: E generates exactly 'z'.\n\nNow, let's evaluate each option:\n\nA) **xyz**  \n- B generates 'x', and C can generate D (which can produce 'y'). So, A could generate 'xyz'.\n\nB) **xy**  \n- B can generate 'x', and C can generate D (which can produce 'y'). So, A could generate 'xy'.\n\nC) **xxzy**  \n- B can generate 'xx', and C can generate D (which can produce 'y' after 'z' from E). The grammar can generate 'xxzy' as A could produce BC with B generating 'xx' and C generating 'z' followed by 'y'. \n\nD) **xxxxy**  \n- B can generate 'xxxx', and C can generate D (which can produce 'y'). So A could generate 'xxxxy'.\n\nNow, let's check the structure of each option against the grammar rules:\n- Options A, B, C, and D can all be generated by the grammar by combining the strings produced by B and C.\n\nHowever, we need to check for the correct parsing of the strings. \n\n- The strings that can be generated by the grammar all need to conform to the generated structure, and based on the analysis, all options can be generated by the grammar.\n\nUpon reviewing once more, it appears that all options may be generated by the grammar. But since we are looking for the option that is least likely or difficult to generate based on the context of the grammar, we can rule out options that strictly follow the rules.\n\nUpon closer examination, **the correct answer is**:\n\n**C) xxzy** - This is not generated by the grammar structure since 'z' cannot directly be followed by 'y' without the proper sequence of grammar rules leading to that",
+    "grades": []
+  },
+  {
+    "question_id": "77",
+    "question": "To compute the matrix product M_1M_2, where M_1 has p rows and q columns and where M_2 has q rows and r columns, takes time proportional to pqr, and the result is a matrix of p rows and r columns. Consider the product of three matrices N_1N_2N_3 that have, respectively, w rows and x columns, x rows and y columns, and y rows and z columns. Under what condition will it take less time to compute the product as (N_1N_2)N_3 (i.e., multiply the first two matrices first) than to compute it as N_1(N_2 N_3)?",
+    "options": [
+      "There is no such condition; i.e., they will always take the same time.",
+      "1/x + 1/z < 1/w + 1/y",
+      "x > y",
+      "1/w + 1/x < 1/y + 1/z"
+    ],
+    "ground_truth": 1,
+    "response": "To determine the condition under which the computation of the matrix product \\( (N_1N_2)N_3 \\) takes less time than \\( N_1(N_2N_3) \\), we need to analyze the time complexities of both computations based on the dimensions of the matrices.\n\nThe time taken to multiply two matrices \\( M_1 \\) and \\( M_2 \\) is given by the product of their dimensions. Specifically, if \\( M_1 \\) has dimensions \\( p \\times q \\) and \\( M_2 \\) has dimensions \\( q \\times r \\), then the multiplication takes \\( O(pqr) \\) time.\n\n1. **Time for \\( (N_1N_2)N_3 \\)**:\n   - First, compute \\( N_1N_2 \\):\n     - \\( N_1 \\) has dimensions \\( w \\times x \\) and \\( N_2 \\) has dimensions \\( x \\times y \\).\n     - The time taken for this multiplication is \\( O(wxy) \\).\n   - Next, take the result (which has dimensions \\( w \\times y \\)) and multiply it by \\( N_3 \\) (which has dimensions \\( y \\times z \\)):\n     - The time for this multiplication is \\( O(wyz) \\).\n   - Total time for \\( (N_1N_2)N_3 \\) is:  \n     \\[\n     T_1 = O(wxy) + O(wyz) = O(wxy + wyz)\n     \\]\n\n2. **Time for \\( N_1(N_2N_3) \\)**:\n   - First, compute \\( N_2N_3 \\):\n     - \\( N_2 \\) has dimensions \\( x \\times y \\) and \\( N_3 \\) has dimensions \\( y \\times z \\).\n     - The time taken for this multiplication is \\( O(xyz) \\).\n   - Next, take \\( N_1 \\) (which has dimensions \\( w \\times x \\)) and multiply it by the result (which has dimensions \\( x \\times z \\)):\n     - The time for this multiplication is \\( O(wxz) \\).\n   - Total time for \\( N_1(N_2N_3) \\) is:  \n     \\[\n     T_2 = O(xyz) + O(wxz) = O(xyz + wxz)\n     \\]\n\nNow we need",
+    "grades": []
+  },
+  {
+    "question_id": "84",
+    "question": "Of the following, which gives the best upper bound for the value of f(N) where f is a solution to the recurrence f(2N + 1) = f(2N) = f(N) + log N for N >= 1, with f(1) = 0?",
+    "options": [
+      "O(log N)",
+      "O(N log N)",
+      "O(log N) + 0(1)",
+      "O((log N)^2)"
+    ],
+    "ground_truth": 3,
+    "response": "To solve the recurrence relation given by \\( f(2N + 1) = f(2N) = f(N) + \\log N \\) with the base case \\( f(1) = 0 \\), we can analyze it step-by-step.\n\n1. **Understanding the recurrence**: The recurrence states that:\n   - For both \\( 2N \\) and \\( 2N + 1 \\), the value of \\( f \\) at those points is dependent on \\( f(N) \\) plus \\( \\log N \\).\n  \n2. **Expanding the recurrence**: We can express \\( f(N) \\) recursively:\n   - \\( f(N) = f(N/2) + \\log(N/2) \\) (for \\( N \\) being even).\n   - If we keep expanding, we will find that the contributions from \\( \\log \\) terms accumulate as we go deeper into the recursion.\n\n3. **Logarithmic contributions**: Each time we halve \\( N \\), we add a term \\( \\log(N) \\) which can be expressed as:\n   - \\( f(N) \\) = \\( f(N/2) + \\log(N) \\)\n   - \\( f(N/2) = f(N/4) + \\log(N/2) \\)\n   - Continuing this process, we find that:\n     \\[\n     f(N) = f(1) + \\log(1) + \\log(2) + \\log(4) + \\ldots + \\log(N)\n     \\]\n   - This series continues until we reach \\( N = 1 \\).\n\n4. **Summation of logarithmic terms**: The number of terms summed is proportional to the logarithm of \\( N \\) (since we halve \\( N \\) each time), specifically:\n   - The total number of terms added is \\( \\log(N) \\).\n   - Each term contributes a logarithmic value, leading to a cumulative effect.\n\n5. **Final evaluation**: The depth of the recursion and the logarithmic contributions indicate that the final result accumulates to \\( O((\\log N)^2) \\) because:\n   - We essentially add logarithmic terms at each level of the recursion, leading to a quadratic growth in terms of logarithmic increments.\n\nThus, the best upper bound for \\( f(N) \\) is:\n\n**D) O((log N)^2)**.",
+    "grades": []
+  },
+  {
+    "question_id": "71",
+    "question": "Two processors, M-5 and M-7, implement the same instruction set. Processor M-5 uses a 5-stage pipeline and a clock cycle of 10 nanoseconds. Processor M-7 uses a 7-stage pipeline and a clock cycle of 7.5 nanoseconds. Which of the following is (are) true?\nI. M-7\u2019s pipeline has better maximum throughput than M-5\u2019s pipeline.\nII. The latency of a single instruction is shorter on M-7\u2019s pipeline than on M-5\u2019s pipeline.\nIII. Programs executing on M-7 will always run faster than programs executing on M-5.",
+    "options": [
+      "I only",
+      "II only",
+      "I and III",
+      "II and III"
+    ],
+    "ground_truth": 0,
+    "response": "To analyze the statements regarding processors M-5 and M-7, we need to understand the implications of their pipeline stages and clock cycles.\n\n1. **Maximum Throughput**:\n   - M-5 has a 5-stage pipeline and a clock cycle of 10 ns.\n   - M-7 has a 7-stage pipeline and a clock cycle of 7.5 ns.\n   - The throughput of a pipeline can be calculated as the inverse of the clock cycle multiplied by the number of pipeline stages. \n   - M-5: Throughput = 1 / (10 ns) = 0.1 instructions/ns.\n   - M-7: Throughput = 1 / (7.5 ns) = 0.133 instructions/ns.\n   - Since 0.133 > 0.1, M-7 has better maximum throughput than M-5.\n   - **Statement I is true.**\n\n2. **Latency of a Single Instruction**:\n   - The latency of a single instruction can be calculated as the number of stages multiplied by the time per stage.\n   - M-5: Latency = 5 stages * 10 ns = 50 ns.\n   - M-7: Latency = 7 stages * 7.5 ns = 52.5 ns.\n   - Since 50 ns < 52.5 ns, the latency of a single instruction is shorter on M-5 than on M-7.\n   - **Statement II is false.**\n\n3. **Execution Speed of Programs**:\n   - While M-7 has better throughput, this does not guarantee that all programs will run faster on M-7 due to potential higher latency.\n   - If the instruction mix and the implementation details favor M-5, it is possible for programs to run faster on M-5.\n   - Therefore, we cannot conclude that programs on M-7 will always run faster than those on M-5.\n   - **Statement III is false.**\n\nBased on the analysis above, the only true statement is I.\n\nThe correct option is **A) I only**.",
+    "grades": []
+  },
+  {
+    "question_id": "25",
+    "question": "\"Magic memory\"' has two operations: Read and Clear. Both are indivisible and mutually exclusive. Clear sets the magic memory to zero. Read returns a value that represents the number of Read operations since the last Clear operation. Which of the following is (are) true of \"Magic memory\"?\nI. It can provide the functionality of an atomic Test-and-Set.\nII. It can be used to coordinate processes running on a shared-memory multiprocessor.\nIII. It is only useful on a multiprocessor.",
+    "options": [
+      "I only",
+      "II only",
+      "III only",
+      "I and II"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is **D) I and II**.\n\n### Explanation:\n1. **I. It can provide the functionality of an atomic Test-and-Set.**\n   - This statement is true because the behavior of \"Magic memory\" allows one process to \"clear\" and another to \"read\" the number of reads since the last clear atomically. The atomicity ensures that the operations are indivisible, similar to the atomic Test-and-Set operation, which is used for synchronization.\n\n2. **II. It can be used to coordinate processes running on a shared-memory multiprocessor.**\n   - This statement is also true. The operations of \"Magic memory\" can be utilized for synchronization between processes running on a shared-memory multiprocessor system. For instance, one process can clear the memory and others can read it to know how many operations have occurred since the last clear, thus coordinating their actions based on this shared state.\n\n3. **III. It is only useful on a multiprocessor.**\n   - This statement is false. While \"Magic memory\" is particularly useful in a multiprocessor environment for coordinating processes, it is not exclusively useful there. It can also be applied in single-processor systems for managing state between different parts of a program, although its primary utility emerges in concurrent environments.\n\nThus, the statements I and II are true, making option D the correct choice.",
+    "grades": []
+  },
+  {
+    "question_id": "89",
+    "question": "Local caching of files is common in distributed file systems, but it has the disadvantage that",
+    "options": [
+      "Temporary inconsistencies among views of a file by different machines can result",
+      "The file system is likely to be corrupted when a computer crashes",
+      "A much higher amount of network traffic results",
+      "Caching makes file migration impossible"
+    ],
+    "ground_truth": 0,
+    "response": "The correct option is: **A) Temporary inconsistencies among views of a file by different machines can result.**\n\n### Explanation:\nLocal caching is used in distributed file systems to improve performance by reducing the latency of file access. However, when multiple machines cache files locally, there can be discrepancies between the cached version of a file on one machine and the actual version stored on another machine or the server. This can lead to temporary inconsistencies where different machines may see different versions of the file, especially if one machine updates the file while others are still accessing the old cached version. This issue is a common challenge in systems that prioritize speed through caching while also needing to maintain consistency across distributed resources.",
+    "grades": []
+  },
+  {
+    "question_id": "53",
+    "question": "Which of the following sorting algorithms has average-case and worst-case running times of O(n log n)?",
+    "options": [
+      "Bubble sort",
+      "Insertion sort",
+      "Merge sort",
+      "Quicksort"
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is **C) Merge sort**.\n\n**Explanation:**  \nMerge sort is a divide-and-conquer sorting algorithm that consistently has a running time of O(n log n) for both average-case and worst-case scenarios. It works by recursively splitting the array into halves, sorting each half, and then merging the sorted halves back together.\n\nIn contrast:\n- **A) Bubble sort** has an average and worst-case time complexity of O(n^2).\n- **B) Insertion sort** also has an average and worst-case time complexity of O(n^2).\n- **D) Quicksort** has an average-case time complexity of O(n log n), but its worst-case time complexity is O(n^2) when the pivot selection is poor (e.g., always picking the smallest or largest element in a sorted array).\n\nThus, the only algorithm listed that has both average-case and worst-case time complexities of O(n log n) is Merge sort.",
+    "grades": []
+  },
+  {
+    "question_id": "93",
+    "question": "A major advantage of direct mapping of a cache is its simplicity. The main disadvantage of this organization is that",
+    "options": [
+      "it does not allow simultaneous access to the intended data and its tag",
+      "it is more expensive than other types of cache organizations",
+      "the cache hit ratio is degraded if two or more blocks used alternately map onto the same block frame in the cache",
+      "its access time is greater than that of other cache organizations"
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is:  \n**C) the cache hit ratio is degraded if two or more blocks used alternately map onto the same block frame in the cache.**\n\n**Explanation:**  \nDirect mapping of a cache assigns each block from main memory to exactly one possible location in the cache. This means that if multiple blocks from memory map to the same cache line, they will replace each other. As a result, if two or more frequently accessed memory blocks happen to map to the same cache line, they will cause cache misses when they alternate, leading to a degraded cache hit ratio. This phenomenon is often referred to as \"cache thrashing.\" Options A, B, and D do not accurately describe the primary disadvantage of direct-mapped caches as compared to other cache organizations.",
+    "grades": []
+  },
+  {
+    "question_id": "57",
+    "question": "Which of the following instruction-set features is NOT generally considered an obstacle to aggressive pipelining of an integer unit?",
+    "options": [
+      "Condition codes set by every instruction",
+      "Variable-length encoding of instructions",
+      "Instructions requiring widely varying numbers of cycles to execute",
+      "Several different classes (sets) of registers"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is **D) Several different classes (sets) of registers**.\n\n**Explanation**: \n\nAggressive pipelining in an integer unit aims to improve instruction throughput by overlapping the execution of multiple instructions. The features that generally hinder aggressive pipelining include:\n\n- **Condition codes set by every instruction (A)**: This creates dependencies between instructions that can stall the pipeline, as the result of one instruction may affect the execution of subsequent instructions.\n  \n- **Variable-length encoding of instructions (B)**: This complicates the instruction fetch and decode stages, which can lead to delays in the pipeline.\n  \n- **Instructions requiring widely varying numbers of cycles to execute (C)**: This leads to uneven execution times that can cause pipeline stalls and inefficiencies.\n\nIn contrast, **D) Several different classes (sets) of registers** does not inherently impede pipelining. Having multiple register classes can actually facilitate some optimizations, such as reducing the need for register renaming or allowing more instructions to be issued in parallel. Thus, this option is not generally considered an obstacle to aggressive pipelining.",
+    "grades": []
+  },
+  {
+    "question_id": "95",
+    "question": "A 3-way, set-associative cache is",
+    "options": [
+      "one in which each main memory word can be stored at any of 3 cache locations",
+      "effective only if 3 or fewer processes are running alternately on the processor",
+      "possible only with write-back",
+      "faster to access than a direct-mapped cache"
+    ],
+    "ground_truth": 0,
+    "response": "The correct option is:  \n**A) one in which each main memory word can be stored at any of 3 cache locations.**\n\n**Explanation:**  \nIn a 3-way set-associative cache, the cache is divided into multiple sets, and each set can hold a certain number of cache lines (in this case, 3). This means that for any given block of memory, it can be placed in any of the 3 locations within its designated set. This provides greater flexibility than a direct-mapped cache, where each block of memory maps to exactly one cache line, but it does not imply any limitations related to processes (as suggested in option B), nor does it require a write-back strategy (as suggested in option C). Furthermore, while a set-associative cache can be faster than a direct-mapped cache in some scenarios due to reduced conflict misses, this is not universally true and cannot be stated as a fact for all cases (as in option D). Therefore, option A is the most accurate description of a 3-way set-associative cache.",
+    "grades": []
+  },
+  {
+    "question_id": "0",
+    "question": "The access matrix approach to protection has the difficulty that",
+    "options": [
+      "the matrix, if stored directly, is large and can be clumsy to manage",
+      "it is not capable of expressing complex protection requirements",
+      "deciding whether a process has access to a resource is undecidable",
+      "there is no way to express who has rights to change the access matrix itself"
+    ],
+    "ground_truth": 0,
+    "response": "The correct option is:  \n**A) the matrix, if stored directly, is large and can be clumsy to manage.**\n\n**Explanation:**  \nThe access matrix is a conceptual model for handling access control in a system, where it represents the rights of various subjects (users or processes) over various objects (files, devices, etc.). If implemented directly, this matrix can become very large, especially in systems with many users and resources. Managing such a large matrix can be cumbersome and inefficient, leading to challenges in both storage and performance. The other options may present challenges or limitations, but the primary difficulty associated with the access matrix approach is its size and management complexity.",
+    "grades": []
+  },
+  {
+    "question_id": "20",
+    "question": "Which of the following comes closest to being a perfectly secure encryption scheme?",
+    "options": [
+      "The Caesar Cipher, a substitution cipher",
+      "DES (Data Encryption Standard), a symmetric-key algorithm",
+      "Enigma, a transposition cipher",
+      "One-time pad"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is: **D) One-time pad**.\n\n**Explanation:** The one-time pad is considered a perfectly secure encryption scheme because it meets the criteria for perfect secrecy. In a one-time pad, the key used for encryption is completely random, at least as long as the plaintext message, used only once, and kept secret from all parties except the sender and receiver. When these conditions are met, the ciphertext produced gives no information about the plaintext, thus ensuring perfect security. In contrast, the other options (Caesar Cipher, DES, and Enigma) have vulnerabilities that can be exploited, making them less secure.",
+    "grades": []
+  },
+  {
+    "question_id": "90",
+    "question": "Array A contains 256 elements of 4 bytes each. Its first element is stored at physical address 4,096.\nArray B contains 512 elements of 4 bytes each. Its first element is stored at physical address 8,192.\nAssume that only arrays A and B can be cached in an initially empty, physically addressed, physically tagged, direct-mapped, 2K-byte cache with an 8-byte block size. The following loop is then executed.\nfor (i = 0; i < 256; i++)\n        A[i] = A[i] + B[2*i];\nDuring the execution of the loop, how many bytes will be written to memory if the cache has a write-through policy?",
+    "options": [
+      "0",
+      "256",
+      "1024",
+      "2048"
+    ],
+    "ground_truth": 2,
+    "response": "To determine how many bytes will be written to memory during the execution of the given loop, we need to analyze the memory accesses and the cache behavior.\n\n### Analysis of the Arrays and Cache\n1. **Array A**: \n   - Contains 256 elements, each of 4 bytes.\n   - Total size of Array A = 256 * 4 = 1024 bytes.\n   - First element is at physical address 4096.\n\n2. **Array B**: \n   - Contains 512 elements, each of 4 bytes.\n   - Total size of Array B = 512 * 4 = 2048 bytes.\n   - First element is at physical address 8192.\n\n3. **Cache Specifications**:\n   - Cache size = 2K bytes = 2048 bytes.\n   - Block size = 8 bytes.\n   - Number of blocks in the cache = Cache size / Block size = 2048 / 8 = 256 blocks.\n\n### Memory Accesses in the Loop\nThe loop is as follows:\n```c\nfor (i = 0; i < 256; i++)\n    A[i] = A[i] + B[2*i];\n```\n- For each iteration, we access:\n  - `A[i]`: This accesses the `i`-th element of Array A.\n  - `B[2*i]`: This accesses the `2*i`-th element of Array B.\n\n### Memory Addresses for Accesses\n- **Array A accesses**:\n  - Addresses for `A[i]`: \n    - Physical address for `A[i]` = 4096 + (i * 4) for i from 0 to 255.\n    - These addresses would be from 4096 to 4096 + 1020 (which is 5116).\n\n- **Array B accesses**:\n  - Addresses for `B[2*i]`: \n    - Physical address for `B[2*i]` = 8192 + (2*i * 4) = 8192 + (8*i) for i from 0 to 255.\n    - These addresses would be from 8192 to 8192 + 2040 (which is 10232).\n    - The specific addresses accessed will be: 8192, 8200, 8208, ..., 10232.\n\n### Cache Behavior and Writes\nSince this is a write-through cache:\n- Any time we modify `A[i]`,",
+    "grades": []
+  },
+  {
+    "question_id": "43",
+    "question": "Two alternatives for interconnecting a set of processors with bidirectional links are (1) the fully interconnected network, in which each processor is directly connected to every other processor, and (2) the ring network, in which each processor is connected to two other processors. The worst-case path length for a network is the maximum, over all pairs of nodes in the network, of the minimum length paths (measured in number of links) between the nodes. For each type of interconnection of n processors, a figure of merit can be formed as the product of the number of links required for the network times the worst-case path length connecting any two processors. The ratio of this figure of merit for the fully interconnected network compared to that of the ring network, for even n > 2, is",
+    "options": [
+      "1/(n^2)",
+      "1/(n(n-1))",
+      "1/n",
+      "(n-1)/n"
+    ],
+    "ground_truth": 3,
+    "response": "To solve the problem, we need to calculate the figure of merit for both the fully interconnected network and the ring network and then find the ratio of these two figures.\n\n1. **Fully Interconnected Network**:\n   - In a fully interconnected network with \\( n \\) processors, each processor is connected to every other processor. \n   - The number of links \\( L \\) is given by the combination formula \\( L = \\frac{n(n-1)}{2} \\) because each pair of processors has a link.\n   - The worst-case path length \\( P \\) between any two processors is \\( 1 \\) (since they are directly connected).\n   - Therefore, the figure of merit \\( F_{fully} = L \\times P = \\frac{n(n-1)}{2} \\times 1 = \\frac{n(n-1)}{2} \\).\n\n2. **Ring Network**:\n   - In a ring network, each processor is connected to two other processors.\n   - The number of links \\( L \\) is simply \\( n \\) because each processor has exactly one link to each of its neighbors.\n   - The worst-case path length \\( P \\) between any two processors is \\( \\lfloor n/2 \\rfloor \\) (the maximum distance around the ring).\n   - Therefore, the figure of merit \\( F_{ring} = L \\times P = n \\times \\lfloor n/2 \\rfloor \\).\n\nNow let's find the ratio of these two figures of merit:\n\n\\[\n\\text{Ratio} = \\frac{F_{fully}}{F_{ring}} = \\frac{\\frac{n(n-1)}{2}}{n \\times \\lfloor n/2 \\rfloor}\n\\]\n\nSince \\( n \\) in the numerator and denominator cancels out:\n\n\\[\n= \\frac{(n-1)/2}{\\lfloor n/2 \\rfloor}\n\\]\n\nFor even \\( n \\), \\( \\lfloor n/2 \\rfloor = n/2 \\). Thus:\n\n\\[\n= \\frac{(n-1)/2}{n/2} = \\frac{n-1}{n}\n\\]\n\nThus, the ratio of the figure of merit for the fully interconnected network compared to that of the ring network is:\n\n**Option D: (n-1)/n**.",
+    "grades": []
+  },
+  {
+    "question_id": "79",
+    "question": "A particular disk unit uses a bit string to record the occupancy or vacancy of its tracks, with O denoting vacant and 1 denoting occupied. A 32-bit segment of this string has the hexadecimal value D4FE2003. The percentage of occupied tracks for the corresponding part of the disk, to the nearest percent, is",
+    "options": [
+      "12%",
+      "25%",
+      "38%",
+      "44%"
+    ],
+    "ground_truth": 3,
+    "response": "To find the percentage of occupied tracks in the 32-bit segment represented by the hexadecimal value D4FE2003, we need to follow these steps:\n\n1. **Convert the hexadecimal value to binary**:  \n   Each hexadecimal digit converts into 4 binary digits (bits).  \n   - D = 1101  \n   - 4 = 0100  \n   - F = 1111  \n   - E = 1110  \n   - 2 = 0010  \n   - 0 = 0000  \n   - 0 = 0000  \n   - 3 = 0011  \n\n   Therefore, the binary representation of D4FE2003 is:  \n   ```\n   1101 0100 1111 1110 0010 0000 0000 0011\n   ```\n\n2. **Count the number of occupied (1s) and vacant (0s) bits**:  \n   In the binary string:  \n   ```\n   1101 0100 1111 1110 0010 0000 0000 0011\n   ```\n   We count the 1s:  \n   - 1s: 1101 (3), 0100 (1), 1111 (4), 1110 (3), 0010 (1), 0000 (0), 0000 (0), 0011 (2)  \n   Total 1s = 3 + 1 + 4 + 3 + 1 + 0 + 0 + 2 = 14\n\n   The total number of bits = 32.  \n   Thus, the number of vacant bits (0s) = 32 - 14 = 18.\n\n3. **Calculate the percentage of occupied tracks**:  \n   Percentage of occupied tracks = (Number of occupied bits / Total number of bits) \u00d7 100  \n   = (14 / 32) \u00d7 100  \n   = 43.75%\n\n4. **Round to the nearest percent**:  \n   Rounding 43.75% gives us 44%.\n\nThus, the percentage of occupied tracks for the corresponding part of the disk, to the nearest percent, is **44%**.\n\nThe correct option is **D) 44%**.",
+    "grades": []
+  },
+  {
+    "question_id": "19",
+    "question": "Let P be a procedure that for some inputs calls itself (i.e., is recursive). If P is guaranteed to terminate, which of the following statements must be true?\nI. P has a local variable.\nII. P has an execution path where it does not call itself.\nIII. P either refers to a global variable or has at least one parameter.",
+    "options": [
+      "I only",
+      "II only",
+      "I and II only",
+      "II and III only"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is **D) II and III only**.\n\n**Explanation:**\n\nI. **P has a local variable.**  \nThis statement does not have to be true. A recursive procedure can be implemented without any local variables; it could just use parameters and global variables. Therefore, we cannot guarantee that P has a local variable.\n\nII. **P has an execution path where it does not call itself.**  \nThis statement must be true. Since P is guaranteed to terminate, there must be a base case or a condition under which P does not call itself, allowing the recursion to eventually stop. Thus, there is at least one execution path where P does not call itself.\n\nIII. **P either refers to a global variable or has at least one parameter.**  \nThis statement is also true. If P is recursive and guaranteed to terminate, it must have some way of processing input or state changes across recursive calls. This typically involves either parameters (which are passed in each call) or global variables (which can be accessed by all calls). Hence, one of these must be true.\n\nSince II and III are true, the correct option is D) II and III only.",
+    "grades": []
+  },
+  {
+    "question_id": "82",
+    "question": "Which of the following statements about datagrams sent by a node in a network using IPv4 protocol is (are) true?\nI. Datagrams at the source must be the size of the smallest maximum transmission unit (MTU) of all the links on a path to the destination.\nII. Datagrams may be fragmented during routing.\nIII. Datagrams are reassembled only at the destination.",
+    "options": [
+      "I only",
+      "II only",
+      "III only",
+      "II and III"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is **D) II and III**.\n\n**Explanation:**\n\nI. **False** - While it is true that datagrams must not exceed the MTU of any link in the path, they do not need to be sized to the smallest MTU. IPv4 allows for fragmentation, meaning datagrams can be larger than the MTU of a link and will be fragmented into smaller pieces as they traverse links with smaller MTUs.\n\nII. **True** - Datagrams may be fragmented during routing if they encounter a link with a smaller MTU than the datagram's size. Each fragment is sent separately and reassembled at the destination.\n\nIII. **True** - Datagrams are reassembled only at the destination. Intermediate routers do not reassemble the fragments; they only forward them.\n\nThus, statements II and III are true, making option D the correct answer.",
+    "grades": []
+  },
+  {
+    "question_id": "67",
+    "question": "Which of the following statements about circuits is (are) true?\nI. Combinational circuits may have feedback; sequential circuits do not.\nII. Combinational circuits have a \"memoryless\" property; sequential circuits do not.\nIII. Both sequential and combinational circuits must be controlled by an external clock.",
+    "options": [
+      "I only",
+      "II only",
+      "I and II only",
+      "II and III only"
+    ],
+    "ground_truth": 1,
+    "response": "The correct option is **B) II only**.\n\n**Explanation:**\n\nI. Combinational circuits may have feedback; sequential circuits do not.  \n- This statement is false. Combinational circuits do not have feedback; they produce outputs solely based on current inputs without any memory of past inputs. In contrast, sequential circuits do have feedback and can store information, allowing outputs to depend on both current inputs and past states.\n\nII. Combinational circuits have a \"memoryless\" property; sequential circuits do not.  \n- This statement is true. Combinational circuits are indeed memoryless; their outputs depend only on the current inputs. Sequential circuits, however, have memory elements (like flip-flops) that allow them to retain state information from previous inputs, thus they can depend on past states.\n\nIII. Both sequential and combinational circuits must be controlled by an external clock.  \n- This statement is false. Only sequential circuits are typically controlled by an external clock, as they require synchronization for state changes. Combinational circuits operate without a clock, as their outputs change immediately based on the inputs.\n\nThus, the only true statement is II, making option B the correct answer.",
+    "grades": []
+  },
+  {
+    "question_id": "6",
+    "question": "Resolution theorem proving for showing that a formula of propositional logic is not satisfiable has which of the following properties?\nI. It is a sound proof system in the sense that there does not exist a proof of the unsatisfiability of a satisfiable formula of propositional logic.\nII. It is a complete proof system in the sense that there is a proof of unsatisfiability for every unsa tisfiable formula of propositional logic.\nIII. It is a succinct proof system in the sense that whenever an unsatisfiable formula F of propositional logic has a resolution proof, F also has a proof whose length is polynomial in the length of F.",
+    "options": [
+      "I only",
+      "III only",
+      "I and II only",
+      "I and III only"
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is **C) I and II only**.\n\n**Explanation:**\n\n1. **Property I:** The resolution theorem proving system is sound, meaning that if it derives a conclusion (in this case, unsatisfiability), then the conclusion must be correct. Specifically, if a formula is satisfiable, there can be no proof of its unsatisfiability using resolution. Therefore, Property I is true.\n\n2. **Property II:** The resolution theorem proving system is complete for propositional logic, which means that if a formula is unsatisfiable, there exists a resolution proof that demonstrates this unsatisfiability. Hence, Property II is also true.\n\n3. **Property III:** The resolution proof system is not guaranteed to be succinct. There are cases where the length of a resolution proof can be exponential in relation to the size of the unsatisfiable formula. Therefore, Property III is false.\n\nSo, combining the assessments of each property, the correct answer is that Properties I and II hold true.",
+    "grades": []
+  },
+  {
+    "question_id": "5",
+    "question": "Consider the collection of all undirected graphs with 10 nodes and 6 edges. Let M and m, respectively, be the maximum and minimum number of connected components in any graph in the collection. If a graph has no selfloops and there is at most one edge between any pair of nodes, which of the following is true?",
+    "options": [
+      "M = 10, m = 10",
+      "M = 10, m = 1",
+      "M = 7, m = 4",
+      "M = 6, m = 4"
+    ],
+    "ground_truth": 2,
+    "response": "To solve this problem, we need to analyze the properties of undirected graphs with 10 nodes and 6 edges, specifically focusing on the number of connected components.\n\n### Maximum Number of Connected Components (M)\nThe maximum number of connected components occurs when we minimize the connections among the nodes. The most disconnected scenario is where each node is its own component. However, we can connect some nodes while still maximizing the number of components. \n\n1. With 6 edges, we can connect pairs of nodes but still leave many nodes unconnected. \n2. If we connect 6 pairs of nodes, we could have 4 single nodes left unconnected. This would create 7 components in total (6 connected pairs + 4 isolated nodes).\n3. Therefore, the maximum number of connected components \\( M \\) is 7.\n\n### Minimum Number of Connected Components (m)\nThe minimum number of connected components occurs when the edges are used efficiently to create a single large component or as few components as possible.\n\n1. If we can connect all 10 nodes with 6 edges, we aim to minimize the connected components.\n2. With 6 edges, it is possible to create a connected structure that includes most of the nodes, but it is not enough to connect all 10 nodes in one component, because to connect 10 nodes fully, we would need at least 9 edges (for a tree structure).\n3. A possible structure is connecting 7 nodes together (which would use 6 edges) and leaving 3 nodes disconnected, which would yield 2 components (one with 7 nodes and one with 3 isolated nodes).\n4. Thus, the minimum number of connected components \\( m \\) can be as low as 4, which can happen, for example, by connecting a few pairs and leaving some groups of isolated nodes.\n\n### Conclusion\nBased on the analysis:\n- \\( M = 7 \\)\n- \\( m = 4 \\)\n\nThus, the correct option is **C) M = 7, m = 4**.",
+    "grades": []
+  },
+  {
+    "question_id": "24",
+    "question": "Consider a computer system in which processes can request and release one or more resources. Once a process has been granted a resource, the process has exclusive use of that resource until it is released. If a process requests a resource that is already in use, the process enters a queue for that resource, waiting until the resource is available. Which of the following will NOT deal effectively with the problem of deadlock?",
+    "options": [
+      "Giving priorities to processes and ordering the wait queues by priority",
+      "Having a process request all its required resources when it first begins, and restarting if it cannot obtain them all",
+      "Numbering the resources and requiring that processes request resources in order of increasing number",
+      "Having processes time out and restart after a random interval of waiting"
+    ],
+    "ground_truth": 0,
+    "response": "The correct option is: **D) Having processes time out and restart after a random interval of waiting.**\n\n**Explanation:**  \nOption D does not effectively deal with the problem of deadlock because simply timing out processes and restarting them does not guarantee that the underlying conditions leading to deadlock will be resolved. Deadlock occurs when there is a circular wait condition among processes holding resources; merely restarting a process does not address the resource allocation and waiting issues that can lead to deadlock. \n\nOn the other hand:  \n- Option A (prioritizing processes) can help manage resource allocation but does not eliminate the potential for deadlock.\n- Option B (requesting all resources upfront) can prevent deadlock by ensuring that processes either receive all resources or none, avoiding partial allocations.\n- Option C (ordering resource requests) can prevent circular wait conditions, which is a key factor in deadlock situations.\n\nThus, D is the least effective strategy for addressing deadlock.",
+    "grades": []
+  },
+  {
+    "question_id": "62",
+    "question": "In the Internet Protocol (IP) suite of protocols, which of the following best describes the purpose of the Address Resolution Protocol?",
+    "options": [
+      "To translate Web addresses to host names",
+      "To determine the IP address of a given host name",
+      "To determine the hardware address of a given host name",
+      "To determine the hardware address of a given IP address"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is: **D) To determine the hardware address of a given IP address.**\n\n**Explanation:** The Address Resolution Protocol (ARP) is used in networking to map an Internet Protocol (IP) address to a physical hardware address (also known as a MAC address) within a local area network. When a device wants to communicate with another device on the same local network, it uses ARP to find out the corresponding MAC address for the IP address it wants to send data to. Therefore, the primary function of ARP is to resolve IP addresses into hardware addresses, making option D the correct answer.",
+    "grades": []
+  },
+  {
+    "question_id": "22",
+    "question": "The IP protocol is primarily concerned with",
+    "options": [
+      "Routing packets through the network",
+      "Reliable delivery of packets between directly connected machines",
+      "Reliable delivery of large (multi-packet) messages between machines that are not necessarily directly connected",
+      "Dealing with differences among operating system architectures"
+    ],
+    "ground_truth": 0,
+    "response": "The correct option is: **A) Routing packets through the network**\n\n**Explanation:**  \nThe Internet Protocol (IP) is primarily responsible for addressing and routing packets of data between devices across various networks. IP is a connectionless protocol, which means it does not guarantee reliable delivery; rather, it focuses on delivering packets to the correct destination based on their IP addresses. Options B and C refer to aspects of reliability and message delivery, which are handled by higher-level protocols like TCP (Transmission Control Protocol). Option D is not a function of IP; it does not deal with operating system differences. Thus, option A is the most accurate description of the primary function of the IP protocol.",
+    "grades": []
+  },
+  {
+    "question_id": "68",
+    "question": "Two single-user workstations are attached to the same local area network. On one of these workstations, file pages are accessed over the network from a file server; the average access time per page is 0.1 second. On the other of these workstations, file pages are accessed from a local disk; the average access time per page is 0.05 second. A particular compilation requires 30 seconds of computation and 200 file page accesses. What is the ratio of the total time required by this compilation if run on the diskless (file server) workstation to the total time required if run on the workstation with the local disk, if it is assumed that computation is not overlapped with file access?",
+    "options": [
+      "1/1",
+      "5/4",
+      "5/3",
+      "10/5"
+    ],
+    "ground_truth": 1,
+    "response": "To solve this problem, we need to calculate the total time required for the compilation on both workstations and then find the ratio of these times.\n\n1. **For the workstation with the file server:**\n   - Computation time: 30 seconds\n   - File access time: 200 file page accesses * 0.1 seconds/page = 20 seconds\n   - Total time = Computation time + File access time = 30 seconds + 20 seconds = 50 seconds\n\n2. **For the workstation with the local disk:**\n   - Computation time: 30 seconds\n   - File access time: 200 file page accesses * 0.05 seconds/page = 10 seconds\n   - Total time = Computation time + File access time = 30 seconds + 10 seconds = 40 seconds\n\n3. **Now, we find the ratio of the total times:**\n   - Ratio = Total time on file server workstation / Total time on local disk workstation = 50 seconds / 40 seconds = 5/4\n\nThus, the correct answer is **B) 5/4**. \n\nThis indicates that the compilation takes 5/4 times longer on the workstation accessing files over the network than on the one accessing files from the local disk.",
+    "grades": []
+  },
+  {
+    "question_id": "58",
+    "question": "Let k >= 2. Let L be the set of strings in {0, 1}^* such that x \\in L if and only if the number of 0's in x is divisible by k and the number of 1's in x is odd. The minimum number of states in a deterministic finite automaton (DFA) that recognizes L is",
+    "options": [
+      "k + 2",
+      "2k",
+      "k log k",
+      "k^2"
+    ],
+    "ground_truth": 1,
+    "response": "To solve this problem, we need to analyze the language \\( L \\) defined by the conditions: the number of \\( 0 \\)'s in a string \\( x \\) is divisible by \\( k \\), and the number of \\( 1 \\)'s in \\( x \\) is odd.\n\n### Breakdown of Conditions:\n1. **Number of 0's**: We need to keep track of how many \\( 0 \\)'s have been seen modulo \\( k \\). This can be represented by \\( k \\) states, corresponding to each possible remainder when the count of \\( 0 \\)'s is divided by \\( k \\) (i.e., \\( 0, 1, \\ldots, k-1 \\)).\n  \n2. **Number of 1's**: We need to keep track of whether the count of \\( 1 \\)'s is odd or even. This can be represented by 2 states: one state for an even count and another for an odd count.\n\n### Combining the Two Conditions:\nTo construct the DFA, we need to combine the states tracking the \\( 0 \\)'s modulo \\( k \\) and the states tracking the parity of \\( 1 \\)'s. \n\n- The total number of states in the DFA is the product of the number of states for each condition:\n  - \\( k \\) states for the number of \\( 0 \\)'s modulo \\( k \\)\n  - 2 states for the parity of the number of \\( 1 \\)'s\n\nThus, the total number of states is:\n\\[\nk \\times 2 = 2k\n\\]\n\n### Conclusion:\nThe minimum number of states in a deterministic finite automaton (DFA) that recognizes the set \\( L \\) is \\( 2k \\).\n\nTherefore, the correct answer is:\n**B) 2k**.",
+    "grades": []
+  },
+  {
+    "question_id": "38",
+    "question": "Consider the representation of six-bit numbers by two's complement, one's complement, or by sign and magnitude. In which representation is there overflow from the addition of the integers 011000 and 011000?",
+    "options": [
+      "Two's complement only",
+      "Sign and magnitude and one's complement only",
+      "Two's complement and one's complement only",
+      "All three representations"
+    ],
+    "ground_truth": 3,
+    "response": "To determine whether there is overflow when adding the integers 011000 and 011000 in different representations, we need to analyze each representation for overflow conditions.\n\n1. **Two's Complement**: In two's complement, the range for six-bit numbers is from -32 (100000) to +31 (011111). Adding 011000 (which is +24 in decimal) and 011000 (+24) results in 110000 (which is +48 in decimal). This exceeds the maximum representable value of +31, so there is overflow.\n\n2. **One's Complement**: In one's complement, the range is also from -31 (100000) to +31 (011111). The addition of 011000 (+24) and 011000 (+24) gives 110000. The result is the same (+48), which again exceeds +31. Therefore, there is overflow in one's complement as well.\n\n3. **Sign and Magnitude**: In sign and magnitude, the range is the same as in one's complement, from -31 (100000) to +31 (011111). Adding 011000 (+24) and 011000 (+24) results in 110000 (+48), which again exceeds the maximum of +31. Thus, there is overflow in sign and magnitude too.\n\nSince all three representations (two's complement, one's complement, and sign and magnitude) experience overflow when adding the two numbers, the correct answer is:\n\n**D) All three representations**. \n\nAll representations indicate overflow in this case.",
+    "grades": []
+  },
+  {
+    "question_id": "16",
+    "question": "Which of the following is NOT a reasonable justification for choosing to busy-wait on an asynchronous event?",
+    "options": [
+      "The wait is expected to be short.",
+      "A busy-wait loop is easier to code than an interrupt handler.",
+      "There is no other work for the processor to do.",
+      "The program executes on a time-sharing system."
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is: **D) The program executes on a time-sharing system.**\n\n**Explanation:**  \nBusy-waiting, or spinning, involves repeatedly checking a condition in a loop without relinquishing control of the processor. This approach can be justified under certain circumstances, such as when the wait is expected to be short (A), when it is simpler to implement than an interrupt handler (B), or when there is no other useful work for the processor to do (C). However, in a time-sharing system, multiple processes share the CPU, and busy-waiting would waste CPU resources that could be allocated to other processes. Therefore, busy-waiting is generally discouraged in time-sharing systems, making option D the most unreasonable justification for busy-waiting.",
+    "grades": []
+  },
+  {
+    "question_id": "51",
+    "question": "Which of the following statements about horizontal versus vertical microarchitecture is (are) true?\nI. Programs for horizontal architectures require more time steps than those for vertical architectures.\nII. Horizontal microinstructions are unencoded.\nIII. Horizontal microinstructions usually have a single opcode and multiple operand specifiers.",
+    "options": [
+      "I only",
+      "II only",
+      "III only",
+      "II and III only"
+    ],
+    "ground_truth": 1,
+    "response": "The correct option is **D) II and III only**.\n\n**Explanation:**\n\nI. The statement \"Programs for horizontal architectures require more time steps than those for vertical architectures\" is generally not true. Horizontal microarchitecture tends to allow more operations to occur in parallel due to its extensive use of control signals, which can lead to fewer time steps for executing a given instruction compared to vertical architectures, which are more serial in nature and can require more time steps.\n\nII. The statement \"Horizontal microinstructions are unencoded\" is true. Horizontal microinstructions typically provide a wide range of control signals directly for various operations and do not require encoding, as each bit can directly represent a specific control signal.\n\nIII. The statement \"Horizontal microinstructions usually have a single opcode and multiple operand specifiers\" is true. Horizontal microinstructions often consist of a single opcode that indicates the operation to be performed, along with multiple bits that specify various operands or control signals, allowing for more complex operations to be defined in a single instruction.\n\nThus, statements II and III are correct, making option D the right choice.",
+    "grades": []
+  },
+  {
+    "question_id": "2",
+    "question": "In the NoNicks operating system, the time required by a single file-read operation has four nonoverlapping components:\ndisk seek time-25 msec\ndisk latency time-8 msec\ndisk transfer time- 1 msec per 1,000 bytes\noperating system overhead-1 msec per 1,000 bytes + 10 msec\nIn version 1 of the system, the file read retrieved blocks of 1,000 bytes. In version 2, the file read (along with the underlying layout on disk) was modified to retrieve blocks of 4,000 bytes. The ratio of-the time required to read a large file under version 2 to the time required to read the same large file under version 1 is approximately",
+    "options": [
+      "1:4",
+      "1:3.5",
+      "1:1",
+      "1.1:1"
+    ],
+    "ground_truth": 1,
+    "response": "To solve the problem, we need to calculate the total time required for a single file-read operation under both version 1 (retrieving 1,000 bytes) and version 2 (retrieving 4,000 bytes).\n\n### Version 1 (1,000 bytes):\n- **Disk Seek Time:** 25 ms\n- **Disk Latency Time:** 8 ms\n- **Disk Transfer Time:** 1 ms per 1,000 bytes = 1 ms\n- **Operating System Overhead:** 1 ms per 1,000 bytes + 10 ms = 1 ms + 10 ms = 11 ms\n\n**Total Time for Version 1:**\nTotal Time = Disk Seek Time + Disk Latency Time + Disk Transfer Time + Operating System Overhead  \nTotal Time = 25 ms + 8 ms + 1 ms + 11 ms = 45 ms\n\n### Version 2 (4,000 bytes):\n- **Disk Seek Time:** 25 ms (remains the same)\n- **Disk Latency Time:** 8 ms (remains the same)\n- **Disk Transfer Time:** 1 ms per 1,000 bytes = 4 ms for 4,000 bytes\n- **Operating System Overhead:** 1 ms per 1,000 bytes + 10 ms = 4 ms + 10 ms = 14 ms\n\n**Total Time for Version 2:**\nTotal Time = Disk Seek Time + Disk Latency Time + Disk Transfer Time + Operating System Overhead  \nTotal Time = 25 ms + 8 ms + 4 ms + 14 ms = 51 ms\n\n### Ratio of Times:\nNow, we calculate the ratio of the time required to read a large file under version 2 to the time required to read the same large file under version 1.\n\nRatio = Total Time for Version 2 / Total Time for Version 1  \nRatio = 51 ms / 45 ms \u2248 1.1333\n\nThis ratio simplifies to approximately 1.1:1.\n\n### Conclusion:\nThe correct answer is **D) 1.1:1**.",
+    "grades": []
+  },
+  {
+    "question_id": "46",
+    "question": "Which of the following decimal numbers has an exact representation in binary notation?",
+    "options": [
+      "0.1",
+      "0.2",
+      "0.3",
+      "0.5"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is **D) 0.5**.\n\n**Explanation:** In binary notation, only certain fractions can be represented exactly. A decimal number can be exactly represented in binary if it can be expressed as a sum of fractions of the form \\( \\frac{1}{2^n} \\).\n\n- **0.1** in binary is a repeating fraction (it cannot be expressed as a finite binary fraction).\n- **0.2** is also a repeating binary fraction.\n- **0.3** similarly cannot be expressed as a finite binary fraction.\n- **0.5**, however, can be represented exactly as \\( \\frac{1}{2} \\) in binary, which is simply `0.1`.\n\nTherefore, the only decimal number among the options that has an exact representation in binary is **0.5**.",
+    "grades": []
+  },
+  {
+    "question_id": "99",
+    "question": "Suppose that a certain software product has a mean time between failures of 10,000 hours and has a mean time to repair of 20 hours. If the product is used by 100 customers, what is its availability?",
+    "options": [
+      "80%",
+      "90%",
+      "98%",
+      "99.80%"
+    ],
+    "ground_truth": 3,
+    "response": "To calculate the availability of the software product, we can use the formula for availability:\n\n\\[\n\\text{Availability} = \\frac{\\text{Mean Time Between Failures (MTBF)}}{\\text{Mean Time Between Failures (MTBF)} + \\text{Mean Time to Repair (MTTR)}}\n\\]\n\nGiven:\n- Mean Time Between Failures (MTBF) = 10,000 hours\n- Mean Time to Repair (MTTR) = 20 hours\n\nPlugging in the values:\n\n\\[\n\\text{Availability} = \\frac{10,000}{10,000 + 20} = \\frac{10,000}{10,020}\n\\]\n\nCalculating the denominator:\n\n\\[\n10,000 + 20 = 10,020\n\\]\n\nNow calculate the fraction:\n\n\\[\n\\text{Availability} = \\frac{10,000}{10,020} \\approx 0.998002\n\\]\n\nTo express this as a percentage, we multiply by 100:\n\n\\[\n\\text{Availability} \\approx 99.80\\%\n\\]\n\nThus, the correct option is:\n\n**D) 99.80%**\n\nThis indicates that the software product is highly available, with only a small percentage of time being unavailable due to failures and repairs.",
+    "grades": []
+  },
+  {
+    "question_id": "34",
+    "question": "Which of the following is usually NOT represented in a subroutine's activation record frame for a stack-based programming language?",
+    "options": [
+      "Values of local variables",
+      "A heap area",
+      "The return address",
+      "Stack pointer for the calling activation record"
+    ],
+    "ground_truth": 1,
+    "response": "The correct option is: **B) A heap area**.\n\n**Explanation:**  \nIn a stack-based programming language, a subroutine's activation record (or stack frame) typically contains information necessary for the execution of that subroutine. This includes:\n\n- **A)** Values of local variables: These are stored in the activation record, as they are specific to the execution of that subroutine.\n- **C)** The return address: This is also stored in the activation record so that the program knows where to return after the subroutine finishes executing.\n- **D)** Stack pointer for the calling activation record: This is often included to help manage the call stack and allow for proper return to the calling function.\n\nHowever, **B) A heap area** is generally not part of the activation record. The heap is a separate area of memory used for dynamic memory allocation, and it is managed differently from the stack. The activation record does not store or represent heap memory directly.",
+    "grades": []
+  },
+  {
+    "question_id": "7",
+    "question": "Which of the following statements describe(s) properties of a purely segmented memory system?\nI. It divides memory into units of equal size.\nII. It permits implementation of virtual memory.\nIII. It suffers from internal fragmentation.",
+    "options": [
+      "I only",
+      "II only",
+      "III only",
+      "I and III"
+    ],
+    "ground_truth": 1,
+    "response": "The correct option is **B) II only**.\n\n**Explanation:**\n\n- **I. It divides memory into units of equal size.** This statement is not true for a purely segmented memory system. A segmented memory system divides memory into variable-sized segments, not equal-sized units. Therefore, this statement does not describe a property of segmented memory.\n\n- **II. It permits implementation of virtual memory.** This statement is true. Segmented memory systems can implement virtual memory, allowing segments to be mapped to physical memory as needed, which is a key feature of modern operating systems.\n\n- **III. It suffers from internal fragmentation.** This statement is also not true for a purely segmented memory system. Internal fragmentation typically occurs in systems that use fixed-size partitions, where allocated memory may not be fully utilized. In segmented memory, since segments can be of varying sizes, internal fragmentation is not a primary concern compared to external fragmentation.\n\nThus, only statement II is correct, leading us to choose option **B**.",
+    "grades": []
+  },
+  {
+    "question_id": "60",
+    "question": "Let T be a depth-first search tree of a connected undirected graph G. For each vertex v of T, let pre(v) be the number of nodes visited up to and including v during a preorder traversal of T, and post(v) be the number of nodes visited up to and including v during a postorder traversal of T. The lowest common ancestor of vertices u and v in T is a vertex w of T such that w is an ancestor of both u and v, and no child of w is an ancestor of both u and v. Let (u, v) be an edge in G that is not in T, such that pre(u) < pre(v). Which of the following statements about u and v must be true?\nI. post(u) < post(v)\nII. u is an ancestor of v in T.\nIII. If w is the lowest common ancestor of u and v in T, then w = u.",
+    "options": [
+      "I only",
+      "II only",
+      "III only",
+      "II and III"
+    ],
+    "ground_truth": 3,
+    "response": "To analyze the statements about vertices \\( u \\) and \\( v \\) in the context of a depth-first search (DFS) tree \\( T \\) of a connected undirected graph \\( G \\), where \\( (u, v) \\) is an edge not in \\( T \\) and \\( \\text{pre}(u) < \\text{pre}(v) \\), let's evaluate each statement:\n\n1. **Statement I: \\( \\text{post}(u) < \\text{post}(v) \\)**  \n   This statement is **not necessarily true**. While \\( u \\) is visited before \\( v \\) in the preorder traversal (hence \\( \\text{pre}(u) < \\text{pre}(v) \\)), it is possible for \\( v \\) to finish its postorder traversal before \\( u \\). For example, if \\( u \\) has children and \\( v \\) does not, \\( u \\) could have a later postorder finish than \\( v \\).\n\n2. **Statement II: \\( u \\) is an ancestor of \\( v \\) in \\( T \\)**  \n   This statement is **not true**. Since \\( (u, v) \\) is an edge not in \\( T \\) and \\( \\text{pre}(u) < \\text{pre}(v) \\), it suggests that \\( u \\) is visited before \\( v \\) in the DFS, but that does not imply that \\( u \\) is an ancestor of \\( v \\). The edge could connect \\( u \\) to \\( v \\) but not imply a direct lineage in the DFS tree.\n\n3. **Statement III: If \\( w \\) is the lowest common ancestor of \\( u \\) and \\( v \\) in \\( T \\), then \\( w = u \\)**  \n   This statement is **true**. Since \\( u \\) is visited before \\( v \\) (i.e., \\( \\text{pre}(u) < \\text{pre}(v) \\)), if \\( w \\) were to be the lowest common ancestor of both \\( u \\) and \\( v \\), and considering \\( u \\) is not an ancestor of \\( v \\) (due to the nature of the edge not being in \\( T \\)), the only way for \\( u \\) to be the lowest common ancestor is if \\( w \\) is actually \\( u \\).\n\nGiven this analysis, the only statement that must be true is **Statement",
+    "grades": []
+  },
+  {
+    "question_id": "61",
+    "question": "In systems with support for automatic memory management, a garbage collector typically has the responsibility for reclaiming allocated memory objects whose contents cannot affect any future legal computation. Such objects are identified by determining that they cannot be reached from a root set. Which of the following is NOT part of the root set in a typical garbage collector?",
+    "options": [
+      "Actual parameters of the active procedures",
+      "Dynamically allocated objects on the heap",
+      "Global variables of the program",
+      "Local variables on the call stack"
+    ],
+    "ground_truth": 1,
+    "response": "The correct option is:  \nB) Dynamically allocated objects on the heap\n\n**Explanation:**  \nIn garbage collection, the \"root set\" refers to the set of references that are directly accessible and thus can be used to trace which objects in memory are still in use. The root set typically includes:\n\n- A) Actual parameters of the active procedures: These parameters are accessible and can be used by the currently executing functions.\n- C) Global variables of the program: Global variables are also accessible from anywhere in the program, making them part of the root set.\n- D) Local variables on the call stack: Local variables in currently executing functions are part of the root set as they can be accessed directly.\n\nOn the other hand, dynamically allocated objects on the heap are not part of the root set themselves; they are objects whose accessibility depends on whether they are referenced by objects in the root set. If there are no references from the root set to these heap objects, they can be considered unreachable and subject to garbage collection. Thus, option B is the correct answer as it does not belong to the root set.",
+    "grades": []
+  },
+  {
+    "question_id": "66",
+    "question": "Which of the following problems is (are) decidable?\nI. Given a (finite) string w, is w a prefix of the decimal expansion of \u03c0?\nII. Given a program and an input, is the program\u2019s output the decimal expansion of \u03c0?\nIII. Given a program that takes as input a prefix of the decimal expansion of \u03c0, is the program\u2019s output always the same for every prefix?",
+    "options": [
+      "I only",
+      "II only",
+      "III only",
+      "I and II only"
+    ],
+    "ground_truth": 0,
+    "response": "To determine which of the problems are decidable, let's analyze each statement:\n\nI. **Given a (finite) string w, is w a prefix of the decimal expansion of \u03c0?**  \nThis problem is decidable. The decimal expansion of \u03c0 is a specific, well-defined sequence of digits. We can compute the digits of \u03c0 to any desired precision, and thus we can check if a given finite string w matches the beginning of this sequence. Therefore, this problem can be resolved algorithmically.\n\nII. **Given a program and an input, is the program\u2019s output the decimal expansion of \u03c0?**  \nThis problem is undecidable. The question of whether a program produces a specific output (in this case, the decimal expansion of \u03c0) is equivalent to the Halting Problem. We cannot, in general, determine whether arbitrary programs will produce specific outputs for given inputs.\n\nIII. **Given a program that takes as input a prefix of the decimal expansion of \u03c0, is the program\u2019s output always the same for every prefix?**  \nThis problem is also undecidable. It is essentially asking whether the program behaves consistently for all inputs that are prefixes of \u03c0's decimal expansion. This is akin to asking if a program halts and produces the same output for multiple inputs, which is generally undecidable.\n\nConsidering the analysis, the only decidable problem is I. Thus, the correct answer is:\n\n**A) I only**.",
+    "grades": []
+  },
+  {
+    "question_id": "18",
+    "question": "Which of the following statements about Ethernets is typically FALSE?",
+    "options": [
+      "Ethernets use circuit switching to send messages.",
+      "Ethernets use buses with multiple masters.",
+      "Ethernet protocols use a collision-detection method to ensure that messages are transmitted properly.",
+      "Networks connected by Ethernets are limited in length to a few hundred meters."
+    ],
+    "ground_truth": 0,
+    "response": "The correct option is: **A) Ethernets use circuit switching to send messages.**\n\n**Explanation:**  \nEthernets typically use packet switching, not circuit switching. In circuit switching, a dedicated communication path is established between two endpoints for the duration of the communication, which is not how Ethernet operates. Instead, Ethernet sends data in packets over a shared medium where multiple devices can transmit data independently. This allows for more efficient use of the network and does not require a dedicated path for each communication session. The other statements about Ethernets (B, C, and D) are generally true: Ethernets can use a bus topology, they employ collision detection (CSMA/CD), and they have certain limitations on segment lengths, typically a few hundred meters.",
+    "grades": []
+  },
+  {
+    "question_id": "40",
+    "question": "Many cryptographic protocols base their security on assumptions about the computational difficulty of integer factorization. Integer factorization serves this purpose because we believe that",
+    "options": [
+      "integer multiplication is a function whose inverse, factorization, remains difficult for a large class of inputs",
+      "P = NP",
+      "even if P = NP, integer factorization is still likely not to be polynomial-time computable",
+      "testing primality is computationally intractable"
+    ],
+    "ground_truth": 0,
+    "response": "The correct option is:  \n**A) integer multiplication is a function whose inverse, factorization, remains difficult for a large class of inputs.**\n\n### Explanation:\nThe security of many cryptographic protocols, such as RSA, is indeed based on the assumption that while it is easy to multiply two large prime numbers together (which results in a composite number), it is computationally difficult to reverse that operation, i.e., to factor the composite number back into its prime factors. This asymmetry is what underpins the security of these protocols. The belief is that there is no efficient algorithm (in polynomial time) that can factor large integers, making the integer factorization problem a foundational aspect of the security in cryptography. \n\nOptions B, C, and D each contain inaccuracies or are not directly related to the core reason why integer factorization is considered difficult for cryptographic purposes.",
+    "grades": []
+  },
+  {
+    "question_id": "39",
+    "question": "Of the following, which best characterizes computers that use memory-mapped I/O?",
+    "options": [
+      "The computer provides special instructions for manipulating I/O ports.",
+      "I/O ports are placed at addresses on the bus and are accessed just like other memory locations.",
+      "To perform an I/O operation, it is sufficient to place the data in an address register and call the channel to perform the operation.",
+      "Ports are referenced only by memory-mapped instructions of the computer and are located at hardwired memory locations."
+    ],
+    "ground_truth": 1,
+    "response": "The correct option is:  \n**B) I/O ports are placed at addresses on the bus and are accessed just like other memory locations.**\n\n**Explanation:**  \nMemory-mapped I/O is a method where the input/output devices are assigned specific address spaces in the same address space as the regular memory. This allows the CPU to access the I/O ports using the same instructions that are used for accessing regular memory. In this configuration, I/O operations can be performed by reading from or writing to these memory addresses just like any other data in memory, which is what option B describes accurately. The other options either describe different I/O models or mischaracterize how memory-mapped I/O works.",
+    "grades": []
+  },
+  {
+    "question_id": "23",
+    "question": "Of the following, which best approximates the ratio of the number of nonterminal nodes to the total number of nodes in a complete K-ary tree of depth N?",
+    "options": [
+      "1/K",
+      "K-1/K",
+      "log_10 (1/N)",
+      "N-1/m"
+    ],
+    "ground_truth": 0,
+    "response": "To solve this question, we need to understand the structure of a complete K-ary tree of depth N.\n\n1. **Total Nodes in a K-ary Tree**: The total number of nodes \\( T \\) in a complete K-ary tree of depth \\( N \\) can be calculated using the formula:\n   \\[\n   T = \\frac{K^{N+1} - 1}{K - 1}\n   \\]\n   This accounts for all levels of the tree from level 0 to level N.\n\n2. **Nonterminal Nodes**: Nonterminal nodes (which are also known as internal nodes) are those nodes that have at least one child. In a complete K-ary tree, all nodes at levels 0 to \\( N-1 \\) are nonterminal, while the nodes at level N (the leaves) are terminal nodes.\n\n   The number of nonterminal nodes \\( I \\) can be calculated as:\n   \\[\n   I = \\frac{K^N - 1}{K - 1}\n   \\]\n   This is the sum of all nodes from level 0 to level \\( N-1 \\).\n\n3. **Calculating the Ratio**: We want to find the ratio of nonterminal nodes to total nodes:\n   \\[\n   \\text{Ratio} = \\frac{I}{T} = \\frac{\\frac{K^N - 1}{K - 1}}{\\frac{K^{N+1} - 1}{K - 1}} = \\frac{K^N - 1}{K^{N+1} - 1}\n   \\]\n\n   For large \\( N \\), this ratio simplifies to:\n   \\[\n   \\text{Ratio} \\approx \\frac{K^N}{K^{N+1}} = \\frac{1}{K}\n   \\]\n\n   However, considering the exact terms and asymptotic behavior as \\( N \\) becomes very large, we can see that the presence of -1 in both the numerator and denominator leads to a ratio that approaches \\( \\frac{K-1}{K} \\) since the -1 becomes negligible compared to \\( K^N \\) and \\( K^{N+1} \\).\n\n4. **Final Answer**: Thus, the best approximation of the ratio of the number of nonterminal nodes to the total number of nodes in a complete K-ary tree of depth N is:\n   \\[\n   \\frac{K-1",
+    "grades": []
+  },
+  {
+    "question_id": "36",
+    "question": "Of the following sorting algorithms, which has a running time that is LEAST dependent on the initial ordering of the input?",
+    "options": [
+      "Insertion sort",
+      "Quicksort",
+      "Merge sort",
+      "Selection sort"
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is: **C) Merge sort**\n\n### Explanation:\n- **Insertion Sort**: Its performance is heavily dependent on the initial ordering. It is efficient for nearly sorted data but performs poorly on reverse-sorted data, with a worst-case time complexity of O(n^2).\n\n- **Quicksort**: Although it has an average-case time complexity of O(n log n), its worst-case performance is O(n^2) and can be significantly influenced by the initial ordering of elements, particularly if the pivot selection is poor.\n\n- **Merge Sort**: This algorithm consistently runs in O(n log n) time regardless of the initial ordering of the input. It divides the array into halves, sorts them, and then merges them back together, which makes it stable in terms of running time irrespective of how the data is arranged.\n\n- **Selection Sort**: This algorithm always runs in O(n^2) time, regardless of the initial order of the input. While it does not adapt to the ordering, it still has the same time complexity for all input arrangements.\n\nThus, among the options given, **Merge Sort** is the least dependent on the initial ordering of the input data.",
+    "grades": []
+  },
+  {
+    "question_id": "12",
+    "question": "An internal hash table has 5 buckets, numbered 0, 1, 2, 3, 4. Keys are integers, and the hash function h(i) = i mod 5 is used, with linear resolution of collisions (i.e., if bucket h(i) is filled, the buckets h(i) + 1, h(i) + 2, ... are tried successively with all bucket numbers computed modulo 5). If elements with keys 13, 8, 24, 10, and 3 are inserted, m that order, into an initially blank hash table, then the content of the bucket numbered 2 is",
+    "options": [
+      "3",
+      "8",
+      "10",
+      "13"
+    ],
+    "ground_truth": 0,
+    "response": "To solve the problem, we need to insert the keys into the hash table using the provided hash function and collision resolution method. The hash function is defined as \\( h(i) = i \\mod 5 \\), and we will use linear probing for collisions.\n\nLet's go through the insertions step-by-step:\n\n1. **Insert 13**:\n   - \\( h(13) = 13 \\mod 5 = 3 \\)\n   - Bucket 3 is empty, so we place 13 in bucket 3.\n\n2. **Insert 8**:\n   - \\( h(8) = 8 \\mod 5 = 3 \\)\n   - Bucket 3 is occupied (by 13), so we try the next bucket.\n   - Bucket 4 is empty, so we place 8 in bucket 4.\n\n3. **Insert 24**:\n   - \\( h(24) = 24 \\mod 5 = 4 \\)\n   - Bucket 4 is occupied (by 8), so we try the next bucket.\n   - Bucket 0 is empty, so we place 24 in bucket 0.\n\n4. **Insert 10**:\n   - \\( h(10) = 10 \\mod 5 = 0 \\)\n   - Bucket 0 is occupied (by 24), so we try the next bucket.\n   - Bucket 1 is empty, so we place 10 in bucket 1.\n\n5. **Insert 3**:\n   - \\( h(3) = 3 \\mod 5 = 3 \\)\n   - Bucket 3 is occupied (by 13), so we try the next bucket.\n   - Bucket 4 is occupied (by 8), so we try the next bucket.\n   - Bucket 0 is occupied (by 24), so we try the next bucket.\n   - Bucket 1 is occupied (by 10), so we try the next bucket.\n   - Bucket 2 is empty, so we place 3 in bucket 2.\n\nNow, let's evaluate the contents of each bucket:\n- Bucket 0: 24\n- Bucket 1: 10\n- Bucket 2: 3\n- Bucket 3: 13\n- Bucket 4: 8\n\nThe bucket numbered 2 contains the key **3**.\n\nThus, the answer is:\n**A) 3**",
+    "grades": []
+  },
+  {
+    "question_id": "85",
+    "question": "Company X shipped 5 computer chips, 1 of which was defective, and Company Y shipped 4 computer chips, 2 of which were defective. One computer chip is to be chosen uniformly at random from the 9 chips shipped by the companies. If the chosen chip is found to be defective, what is the probability that the chip came from Company Y?",
+    "options": [
+      "2 / 9",
+      "4 / 9",
+      "1 / 2",
+      "2 / 3"
+    ],
+    "ground_truth": 3,
+    "response": "To find the probability that a randomly chosen defective chip came from Company Y, we can use Bayes' theorem. \n\nFirst, let's define the events:\n- Let \\( D \\) be the event that a chip is defective.\n- Let \\( Y \\) be the event that the chip came from Company Y.\n- Let \\( X \\) be the event that the chip came from Company X.\n\nWe need to find \\( P(Y | D) \\), the probability that the chip is from Company Y given that it is defective.\n\nWe can use Bayes' theorem:\n\\[\nP(Y | D) = \\frac{P(D | Y) P(Y)}{P(D)}\n\\]\n\n1. **Calculate \\( P(Y) \\)** and \\( P(X) \\):\n   - Total number of chips = 5 (from Company X) + 4 (from Company Y) = 9.\n   - \\( P(Y) = \\frac{4}{9} \\)\n   - \\( P(X) = \\frac{5}{9} \\)\n\n2. **Calculate \\( P(D | Y) \\)** and \\( P(D | X) \\):\n   - Company Y has 4 chips, 2 of which are defective, so:\n     \\[\n     P(D | Y) = \\frac{2}{4} = \\frac{1}{2}\n     \\]\n   - Company X has 5 chips, 1 of which is defective, so:\n     \\[\n     P(D | X) = \\frac{1}{5}\n     \\]\n\n3. **Calculate \\( P(D) \\)**, the total probability of choosing a defective chip:\n   \\[\n   P(D) = P(D | Y) P(Y) + P(D | X) P(X)\n   \\]\n   Plugging in the values:\n   \\[\n   P(D) = \\left(\\frac{1}{2} \\cdot \\frac{4}{9}\\right) + \\left(\\frac{1}{5} \\cdot \\frac{5}{9}\\right)\n   \\]\n   Simplifying each term:\n   \\[\n   P(D) = \\frac{2}{9} + \\frac{1}{9} = \\frac{3}{9} = \\frac{1}{3}\n   \\]\n\n4. **Now substitute back into Bayes' theorem**:\n   \\[\n   P(Y | D) = \\frac{P(D | Y) P(Y)}{",
+    "grades": []
+  },
+  {
+    "question_id": "52",
+    "question": "A \"strictly binary tree\" is a binary tree in which every node that is not a leaf has two children. Suppose that for a class of strictly binary trees there exists c > 0 such that, for any tree in the class, the ratio of the lengths of any two root-to-leaf paths is bounded above by c. Which of the following best characterizes the height h of any tree in this class, where N is the number of nodes in the tree and N > 1 ?",
+    "options": [
+      "h <= log2(N)",
+      "h = 1/c * log2(N)",
+      "h < c log2(N)",
+      "h > c log2(N)"
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is **B) h = 1/c * log2(N)**.\n\n### Explanation:\nIn a strictly binary tree, each node has either 0 or 2 children. For a strictly binary tree with N nodes, the height h of the tree can be analyzed based on the properties given in the question. \n\n1. **Leaf Nodes Count**: In a strictly binary tree, the number of leaf nodes is related to the height. Specifically, the number of leaf nodes \\( L \\) is given by \\( L = 2^h \\). Thus, the total number of nodes \\( N \\) can be expressed in terms of height as \\( N = 2^h - 1 \\) (for a full binary tree).\n\n2. **Path Length Ratio**: Given that the ratio of the lengths of any two root-to-leaf paths is bounded above by some constant \\( c \\), this means that the lengths of paths from the root to any leaf can only differ by at most a factor of \\( c \\). This implies that the height \\( h \\) cannot grow too fast relative to the number of nodes \\( N \\).\n\n3. **Height Calculation**: If we denote the length of the shortest root-to-leaf path as \\( L_{min} \\) and the longest as \\( L_{max} \\), the condition \\( L_{max} \\leq c \\cdot L_{min} \\) leads us to understand the maximum height in relation to the number of nodes. Since \\( L_{min} \\) is roughly \\( h \\) and \\( L_{max} \\) is at most \\( c \\cdot h \\), we can derive that:\n\n   \\[ c \\cdot h \\geq h_{min} \\]\n   \\[ h \\leq \\frac{1}{c} \\cdot \\log_2(N) \\]\n\nThus, the height of the tree \\( h \\) is directly proportional to \\( \\frac{1}{c} \\cdot \\log_2(N) \\). This relationship supports option B, making it the best characterization of the height of any tree in this class.",
+    "grades": []
+  },
+  {
+    "question_id": "98",
+    "question": "A microcomputer used for data acquisition and control is required to digitize and process four analog input signals and to output their average continually; i.e., in real time. The time for an external analog-to-digital converter (which is triggered by a CPU instruction) to digitize one input is 12 microseconds, and only one digitization occurs at a time. Five CPU instructions, including the triggering instruction, must be executed for each signal digitized. Ten CPU instructions are executed in order to average each set of four samples and output this value. The time to convert the output from digital to analog form is to be ignored. If it is assumed that suitable data buffering is employed, then the maximum average instruction execution time that allows the microcomputer to keep up with the input-output data rates, is",
+    "options": [
+      "0.8 microseconds",
+      "1.2 microseconds",
+      "1.6 microseconds",
+      "2.4 microseconds"
+    ],
+    "ground_truth": 2,
+    "response": "To solve this problem, we need to calculate the total time required for digitizing four analog signals and processing their average, and then determine the maximum average instruction execution time that will allow the microcomputer to keep up with the data rates.\n\n1. **Time to digitize one signal**: 12 microseconds\n\n2. **Total time to digitize four signals**: \n   \\[\n   4 \\text{ signals} \\times 12 \\text{ microseconds/signal} = 48 \\text{ microseconds}\n   \\]\n\n3. **CPU instructions for digitizing four signals**: \n   - For each signal, 5 CPU instructions are executed.\n   - For four signals:\n   \\[\n   4 \\text{ signals} \\times 5 \\text{ instructions/signal} = 20 \\text{ instructions}\n   \\]\n\n4. **Instructions to average the samples and output the value**: \n   - It takes 10 instructions to average the four samples and output the value.\n\n5. **Total instructions executed for one cycle of digitizing and averaging**:\n   \\[\n   20 \\text{ (digitizing)} + 10 \\text{ (averaging)} = 30 \\text{ instructions}\n   \\]\n\n6. **Total time for one complete cycle (digitizing + averaging)**: \n   - The total time taken for one complete cycle is the time to digitize four signals plus the time taken to execute the averaging instructions.\n\n   The time taken for the averaging instructions can be expressed as:\n   \\[\n   \\text{Total time} = \\text{Time to digitize} + \\text{Time for instructions}\n   \\]\n   Let \\( T \\) be the average execution time for each instruction. Then:\n   \\[\n   \\text{Time for instructions} = 30 \\text{ instructions} \\times T\n   \\]\n\n   So the total time for one cycle is:\n   \\[\n   48 \\text{ microseconds} + 30T\n   \\]\n\n7. **Condition for real-time processing**:\n   - This total time must not exceed the time it takes to process another set of four signals, which happens every time the processing cycle completes. Hence, we want:\n   \\[\n   48 + 30T \\leq 48\n   \\]\n\n   We can simplify this to find \\( T \\):\n   \\[\n   30T \\leq 0\n   \\]\n   This means",
+    "grades": []
+  },
+  {
+    "question_id": "44",
+    "question": "For a connected, undirected graph G = (V, E), which of the following must be true?\nI. \u03a3_{v\u2208V} degree(v) is even.\nII. |E| \u2265 |V| \u2212 1\nIII. G has at least one vertex with degree 1.",
+    "options": [
+      "I only",
+      "II only",
+      "III only",
+      "I and II"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is **D) I and II**.\n\n**Explanation:**\n\nI. **\u03a3_{v\u2208V} degree(v) is even.**  \nThis statement is true for any undirected graph. The sum of the degrees of all vertices in a graph is equal to twice the number of edges (because each edge contributes 1 to the degree of two vertices). Therefore, this sum is always even.\n\nII. **|E| \u2265 |V| \u2212 1.**  \nThis statement is also true for a connected graph. A connected graph with |V| vertices must have at least |V| - 1 edges, which is the minimum number of edges needed to connect all the vertices without creating any cycles (forming a spanning tree).\n\nIII. **G has at least one vertex with degree 1.**  \nThis statement is not necessarily true. A connected graph can have all vertices of degree 2 or higher. For example, consider a triangle (3 vertices, 3 edges); every vertex has degree 2, and there are no vertices with degree 1.\n\nTherefore, statements I and II are correct, making option D the right choice.",
+    "grades": []
+  },
+  {
+    "question_id": "74",
+    "question": "Consider the following grammar.\nS \u2192 ( S )\nS \u2192 x\nWhich of the following statements is (are) true?\nI. The grammar is ambiguous.\nII. The grammar is suitable for top-down parsing.\nIII. The grammar is suitable for bottom-up parsing.",
+    "options": [
+      "I only",
+      "II only",
+      "III only",
+      "II and III only"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is **D) II and III only**.\n\n**Explanation:**\n\n1. **Statement I: The grammar is ambiguous.**  \n   This statement is **false**. The given grammar generates balanced parentheses and the terminal 'x'. Each string generated by this grammar can be uniquely derived, meaning there is only one way to parse any valid string. Therefore, it is not ambiguous.\n\n2. **Statement II: The grammar is suitable for top-down parsing.**  \n   This statement is **true**. The grammar is suitable for top-down parsing (like LL parsing) because it does not have left recursion and can be parsed using recursive descent. \n\n3. **Statement III: The grammar is suitable for bottom-up parsing.**  \n   This statement is **true**. The grammar can also be parsed using bottom-up techniques (like LR parsing) without conflicts. \n\nOverall, since statements II and III are true, the correct choice is **D) II and III only**.",
+    "grades": []
+  },
+  {
+    "question_id": "63",
+    "question": "Which of the following language features requires that stack-based storage allocation be used rather than static allocation?",
+    "options": [
+      "Recursive procedures",
+      "Arbitrary goto's",
+      "Two-dimensional arrays",
+      "Integer-valued functions"
+    ],
+    "ground_truth": 0,
+    "response": "The correct option is: **A) Recursive procedures**.\n\n**Explanation**: \n\nRecursive procedures require stack-based storage allocation because each recursive call needs to maintain its own set of variables and state. When a function calls itself, a new frame is pushed onto the call stack, which holds the local variables and the return address for that call. Once the function completes, that frame is popped off the stack, and control returns to the previous call. \n\nStatic allocation, on the other hand, allocates memory at compile time and does not allow for the dynamic allocation and deallocation of frames that is necessary for recursion. Therefore, stack-based allocation is essential for supporting recursive procedures. \n\nThe other options do not specifically require stack-based allocation:\n- **B) Arbitrary goto's** can be managed with static or stack allocation depending on the context.\n- **C) Two-dimensional arrays** can be allocated statically or dynamically, not necessarily requiring stack allocation.\n- **D) Integer-valued functions** do not inherently require stack-based allocation as they can be implemented with static allocation.",
+    "grades": []
+  },
+  {
+    "question_id": "59",
+    "question": "Let G = (V, E) be a finite directed acyclic graph with |E| > 0. Which of the following must be true?\nI. G has a vertex with no incoming edge.\nII. G has a vertex with no outgoing edge.\nIII. G has an isolated vertex, that is, one with neither an incoming edge nor an outgoing edge.",
+    "options": [
+      "I only",
+      "II only",
+      "III only",
+      "I and II only"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is **D) I and II only**.\n\n**Explanation:**\n\n1. **Statement I: G has a vertex with no incoming edge.**\n   - This statement is true. In a directed acyclic graph (DAG), there must be at least one vertex that can be reached from no other vertex (i.e., has no incoming edges). This is because a DAG does not have cycles, and if every vertex had at least one incoming edge, you could form a cycle by following the directed edges.\n\n2. **Statement II: G has a vertex with no outgoing edge.**\n   - This statement is also true. In a directed acyclic graph, there must be at least one vertex that does not lead to any other vertex (i.e., has no outgoing edges). This is because if every vertex had outgoing edges, there would be an infinite path in the graph, violating the acyclic property.\n\n3. **Statement III: G has an isolated vertex, that is, one with neither an incoming edge nor an outgoing edge.**\n   - This statement is not necessarily true. A DAG can exist where all vertices have either incoming or outgoing edges, meaning that there can be no isolated vertices. For instance, consider a simple DAG with two vertices connected by a single edge; both vertices have either incoming or outgoing edges.\n\nTherefore, statements I and II must be true, while statement III does not have to be true. Thus, the correct answer is **D) I and II only**.",
+    "grades": []
+  },
+  {
+    "question_id": "47",
+    "question": "Function signatures describe the types of the arguments to a function as well as the return value of the function. For instance, the addition function on reals has a signature of\nadd : real x real -> real\nsince it takes two real numbers and returns a real number. But, for a language that allows functions as return values, addition could be considered to have the signature\nadd : real -> (real -> real)\nwhich means that add takes a single real (the first operand) and returns a new function that itself takes a single real (the second operand) and returns a real (the result). This process of reducing a function with multiple arguments to a function with fewer arguments is called currying. Which of the following is correct?",
+    "options": [
+      "Currying can be applied to any function to the point where it has exactly one input argument.",
+      "Currying cannot be applied to functions of more than two arguments.",
+      "Currying cannot be applied to functions that return functions as arguments.",
+      "Currying cannot be applied w functions that haw arguments that are functions."
+    ],
+    "ground_truth": 0,
+    "response": "The correct option is:  \n**A) Currying can be applied to any function to the point where it has exactly one input argument.**\n\n**Explanation:**  \nCurrying is a technique in functional programming where a function with multiple arguments is transformed into a series of functions each taking a single argument. This means that any function that takes multiple arguments can be curried down to a sequence of functions that each accept only one argument. For instance, a function that takes three arguments can be transformed into a function that takes one argument and returns another function that takes the next argument, and so on, until it eventually returns the result. This process is applicable regardless of the number of arguments or whether the arguments are functions themselves. Options B, C, and D incorrectly state limitations on the use of currying.",
+    "grades": []
+  },
+  {
+    "question_id": "8",
+    "question": "Which of the following statements about floating-point arithmetic is NOT true?",
+    "options": [
+      "It is inherently nonassociative because some numbers have no exact representation.",
+      "It is inherently nonassociative because there have to be upper and lower bounds on the size of numbers.",
+      "Associativity can be achieved with appropriate roundoff conventions.",
+      "Some rational numbers have no exact representation."
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is **B) It is inherently nonassociative because there have to be upper and lower bounds on the size of numbers.**\n\n**Explanation:** \n\nFloating-point arithmetic is nonassociative primarily due to the fact that some numbers cannot be represented exactly in the binary system, which leads to rounding errors. This is reflected in option A, which accurately describes why floating-point arithmetic can produce different results when the order of operations is changed.\n\nOption C is misleading because while certain strategies for rounding can help mitigate errors, true associativity (where \\( (a + b) + c = a + (b + c) \\) for all a, b, c) cannot be universally achieved in floating-point arithmetic due to the limitations of representation.\n\nOption D is true, as many rational numbers (like 1/3) cannot be represented exactly in binary floating-point formats. \n\nHowever, option B incorrectly ties nonassociativity to the bounds on the size of numbers rather than to the inexact representation of certain values. The bounds on the size of numbers (the maximum and minimum representable values in floating-point format) do not inherently cause nonassociativity; instead, it is the rounding errors resulting from the inability to represent certain numbers that lead to nonassociative behavior.",
+    "grades": []
+  },
+  {
+    "question_id": "33",
+    "question": "Which of the following is (are) true about virtual memory systems that use pages?\nI. The virtual address space can be larger than the amount of physical memory.\nII. Programs must be resident in main memory throughout their execution.\nIII. Pages correspond to semantic characteristics of the program.",
+    "options": [
+      "I only",
+      "II only",
+      "I and II",
+      "I and III"
+    ],
+    "ground_truth": 0,
+    "response": "The correct option is **A) I only**.\n\n**Explanation:**\n\nI. **True** - In virtual memory systems that use paging, the virtual address space can indeed be larger than the physical memory. This is a fundamental feature of virtual memory, allowing programs to use more memory than what is physically available by swapping pages in and out of physical memory as needed.\n\nII. **False** - Programs do not need to be resident in main memory throughout their execution in a virtual memory system. The operating system can keep parts of the program (pages) in disk storage (swap space) and load them into physical memory on demand. This is one of the advantages of virtual memory.\n\nIII. **False** - Pages do not necessarily correspond to semantic characteristics of the program. Pages are typically fixed-size blocks of memory, and while they may be based on the size of the memory system, they do not relate to the logical structure or semantic divisions of a program (like functions, objects, etc.).\n\nThus, only statement I is correct.",
+    "grades": []
+  },
+  {
+    "question_id": "87",
+    "question": "A program that checks spelling works in the following way. A hash table has been defined in which each entry is a Boolean variable initialized to false. A hash function has been applied to each word in the dictionary, and the appropriate entry in the hash table has been set to true. To check the spelling in a document, the hash function is applied to every word in the document, and the appropriate entry in the hash table is examined. Which of the following is (are) correct?\nI. true means the word was in the dictionary.\nII. false means the word was not in the dictionary.\nIII. Hash table size should increase with document size.",
+    "options": [
+      "I only",
+      "II only",
+      "I and II only",
+      "II and III only"
+    ],
+    "ground_truth": 1,
+    "response": "The correct option is **C) I and II only**.\n\n**Explanation:**\n\n- **I. true means the word was in the dictionary.**  \n  This statement is correct. In the context of the hash table, if an entry is set to true after applying the hash function to a word from the dictionary, it indicates that the word is present in the dictionary.\n\n- **II. false means the word was not in the dictionary.**  \n  This statement is also correct. If the hash function is applied to a word from the document and the corresponding entry in the hash table is false, it means that the word is not present in the dictionary.\n\n- **III. Hash table size should increase with document size.**  \n  This statement is incorrect. The size of the hash table is determined by the number of unique words in the dictionary, not by the size of the document being checked. The document could have many words, but they may not all be unique or even present in the dictionary. The hash table's size should remain constant based on the size of the dictionary.\n\nTherefore, the statements I and II are correct, leading us to conclude that the answer is **C) I and II only**.",
+    "grades": []
+  },
+  {
+    "question_id": "26",
+    "question": "Which of the following is the name of the data structure in a compiler that is responsible for managing information about variables and their attributes?",
+    "options": [
+      "Abstract Syntax Tree (AST)",
+      "Attribute Grammar",
+      "Symbol Table",
+      "Semantic Stack"
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is **C) Symbol Table**.\n\n**Explanation:**  \nIn a compiler, the symbol table is a data structure used to store information about variables, functions, objects, and other identifiers in the source code. It holds attributes such as variable names, types, scope levels, and memory locations. This information is crucial during the semantic analysis phase of compilation, where the compiler checks for semantic errors and manages variable attributes. The other options, while related to compiler design, do not specifically manage information about variables and their attributes in the same way as the symbol table does.",
+    "grades": []
+  },
+  {
+    "question_id": "83",
+    "question": "A starvation-free job-scheduling policy guarantees that no job waits indefinitely for service. Which of the following job-scheduling policies is starvation-free?",
+    "options": [
+      "Round-robin",
+      "Priority queuing",
+      "Shortest job first",
+      "Youngest job first"
+    ],
+    "ground_truth": 0,
+    "response": "The correct option is: **A) Round-robin**\n\n**Explanation:**  \nA round-robin scheduling policy allocates a fixed time slice to each job in the queue, cycling through them in a fair manner. This means that every job gets a chance to execute in a timely manner, thus preventing any job from waiting indefinitely for service. \n\nIn contrast, priority queuing may lead to starvation of lower-priority jobs if higher-priority jobs continually come in. Similarly, shortest job first can result in longer jobs being starved if shorter jobs keep arriving, and youngest job first (which typically prioritizes newer jobs) can also lead to starvation of older jobs. Therefore, round-robin is the only option that guarantees no job will wait indefinitely.",
+    "grades": []
+  },
+  {
+    "question_id": "49",
+    "question": "In which of the following representations of numbers by 8-bit words is the addition of the integers 109 and -42 within range?\nI. One's complement\nII. Two's complement\nIII. Sign and magnitude",
+    "options": [
+      "I only",
+      "II only",
+      "I and II only",
+      "I, II, and III"
+    ],
+    "ground_truth": 3,
+    "response": "To determine which representations allow for the addition of the integers 109 and -42 within the range of 8-bit words, we first need to understand the range of representable values in each format.\n\n1. **One's complement**: \n   - The range of representable integers in 8-bit one's complement is from -127 to +127. \n   - When we add 109 and -42, we get:  \n     \\( 109 + (-42) = 67 \\), which is within the range of -127 to 127.\n\n2. **Two's complement**: \n   - The range of representable integers in 8-bit two's complement is from -128 to +127.\n   - The same addition gives us \\( 109 + (-42) = 67 \\), which is also within the range of -128 to 127.\n\n3. **Sign and magnitude**: \n   - The range of representable integers in 8-bit sign and magnitude is from -127 to +127, similar to one's complement.\n   - Again, we have \\( 109 + (-42) = 67 \\), which is within the range of -127 to +127.\n\nSince the addition of 109 and -42 results in 67, which falls within the valid range for all three number representations, the correct answer is:\n\n**D) I, II, and III**\n\nAll three representations allow for the addition to be within range.",
+    "grades": []
+  },
+  {
+    "question_id": "80",
+    "question": "An Euler circuit of an undirected graph is a circuit in which each edge of the graph appears exactly once. Which of the following undirected graphs must have an Euler circuit?\nI. A complete graph with 12 vertices\nII. A complete graph with 13 vertices\nIII. A tree with 13 vertices",
+    "options": [
+      "I only",
+      "II only",
+      "III only",
+      "I and II"
+    ],
+    "ground_truth": 1,
+    "response": "To determine which of the given undirected graphs must have an Euler circuit, we need to apply the condition for a graph to have an Euler circuit. A connected undirected graph has an Euler circuit if and only if every vertex has an even degree.\n\nLet's analyze each option:\n\nI. A complete graph with 12 vertices (K\u2081\u2082):\n- In a complete graph with \\( n \\) vertices, each vertex has a degree of \\( n-1 \\). For \\( n = 12 \\), each vertex has a degree of \\( 11 \\), which is odd. Since not all vertices have even degrees, this graph does not have an Euler circuit.\n\nII. A complete graph with 13 vertices (K\u2081\u2083):\n- Similarly, in a complete graph with \\( n = 13 \\), each vertex has a degree of \\( 12 \\) (since each vertex connects to every other vertex). Since \\( 12 \\) is even, and all vertices have even degree, this graph does have an Euler circuit.\n\nIII. A tree with 13 vertices:\n- A tree is a connected acyclic graph. In a tree with \\( n \\) vertices, there are \\( n-1 \\) edges. For a tree to have an Euler circuit, all vertices must have even degrees. However, in any tree, at least two vertices must have an odd degree (specifically, the leaf nodes). Hence, a tree cannot have an Euler circuit.\n\nBased on the analysis:\n- Graph I does not have an Euler circuit.\n- Graph II does have an Euler circuit.\n- Graph III does not have an Euler circuit.\n\nThus, the correct answer is **B) II only**.",
+    "grades": []
+  },
+  {
+    "question_id": "96",
+    "question": "Consider an object-oriented language in which all entities are objects. Two relationships arise: (1) the instance relationship, between an object and the class of which that object is a member, and (2) the subclass relationship, between a class and the superclass from which that class inherits properties. In such a language, when a message is sent to an object requesting execution of one of its methods (procedures), the method is located by following",
+    "options": [
+      "one instance link and then zero or more subclass links",
+      "one or more instance links and then one or more subclass links",
+      "one or more instance links",
+      "one subclass link and then one or more instance links"
+    ],
+    "ground_truth": 0,
+    "response": "The correct option is: **A) one instance link and then zero or more subclass links.**\n\n**Explanation:**  \nIn an object-oriented language, when a message is sent to an object to execute one of its methods, the system first looks for the method in the object's own class (following the instance link). If the method is not found there, it then looks up the class hierarchy, following subclass links to the superclass(es), searching for the method until it is found or until it reaches the top of the hierarchy. Thus, it involves one instance link to the object's class and potentially zero or more subclass links to traverse up the inheritance chain if the method is not defined in the object's own class.",
+    "grades": []
+  },
+  {
+    "question_id": "32",
+    "question": "Bob writes down a number between 1 and 1,000. Mary must identify that number by asking \"yes/no\" questions of Bob. Mary knows that Bob always tells the truth. If Mary uses an optimal strategy, then she will determine the answer at the end of exactly how many questions in the worst case?",
+    "options": [
+      "1,000",
+      "999",
+      "500",
+      "10"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is **D) 10**.\n\nExplanation: When Mary asks \"yes/no\" questions, she can effectively halve the range of possible numbers with each question. This is because each question can yield two possible outcomes (yes or no). The number of questions needed to narrow down to a single number can be determined using the formula for binary search, which is based on powers of 2.\n\nTo determine how many questions are needed to identify a number between 1 and 1,000, we need to find the smallest integer \\( n \\) such that \\( 2^n \\) is greater than or equal to 1,000. \n\nCalculating powers of 2:\n- \\( 2^{10} = 1,024 \\) (which is greater than 1,000)\n- \\( 2^9 = 512 \\) (which is less than 1,000)\n\nSince \\( 2^{10} \\) is the smallest power of 2 that is greater than 1,000, Mary will need a maximum of 10 questions to guarantee she can identify any number between 1 and 1,000. Thus, in the worst case, Mary will determine the answer at the end of exactly 10 questions.",
+    "grades": []
+  },
+  {
+    "question_id": "21",
+    "question": "Of the following problems concerning a given undirected graph G, which is currently known to be solvable in polynomial time?",
+    "options": [
+      "Finding a longest simple cycle in G",
+      "Finding a shortest cycle in G",
+      "Finding ALL spanning trees of G",
+      "Finding a largest clique in G"
+    ],
+    "ground_truth": 1,
+    "response": "The correct option is **C) Finding ALL spanning trees of G**.\n\n**Explanation:**\nIn the context of undirected graphs, the problems presented have different complexities:\n\n- **A) Finding a longest simple cycle in G**: This problem is NP-hard, meaning there is currently no known polynomial-time algorithm to solve it.\n\n- **B) Finding a shortest cycle in G**: This can be done in polynomial time using breadth-first search (BFS), but it is not as commonly categorized as a problem that is straightforwardly solvable in polynomial time compared to finding all spanning trees.\n\n- **C) Finding ALL spanning trees of G**: This involves generating all possible spanning trees of the graph, which can be efficiently done using algorithms like the Matrix-Tree Theorem or edge enumeration methods. The process of finding all spanning trees is well-studied and can be done in polynomial time relative to the number of edges and vertices.\n\n- **D) Finding a largest clique in G**: This problem is also NP-hard, making it difficult to solve in polynomial time.\n\nThus, option C is the only problem listed that is known to be solvable in polynomial time.",
+    "grades": []
+  },
+  {
+    "question_id": "30",
+    "question": "Which of the following is true of interrupts?",
+    "options": [
+      "They are generated when memory cycles are \"stolen\".",
+      "They are used in place of data channels.",
+      "They can indicate completion of an I/O operation.",
+      "They cannot be generated by arithmetic operations."
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is:  \n**C) They can indicate completion of an I/O operation.**\n\n**Explanation:**  \nInterrupts are signals to the processor emitted by hardware or software indicating an event that needs immediate attention. One common use of interrupts is to indicate the completion of an input/output (I/O) operation, allowing the CPU to pause its current tasks and execute a routine to process the I/O data. This is more efficient than the CPU continuously polling the I/O devices to check if they are ready. \n\n- Option A is incorrect as \"stealing\" memory cycles does not directly relate to how interrupts work.\n- Option B is incorrect because interrupts and data channels serve different purposes; interrupts signal events while data channels facilitate data transfer.\n- Option D is incorrect because interrupts can indeed be generated by various events, including arithmetic operations in some contexts, but they are not typically associated with arithmetic operations. \n\nThus, option C is the best answer.",
+    "grades": []
+  },
+  {
+    "question_id": "37",
+    "question": "A particular parallel program computation requires 100 seconds when executed on a single processor. If 40 percent of this computation is \"inherently sequential\" (i.e., will not benefit from additional processors), then the theoretically best possible elapsed times for this program running with 2 and 4 processors, respectively, are",
+    "options": [
+      "20 and 10 seconds",
+      "30 and 15 seconds",
+      "50 and 25 seconds",
+      "70 and 55 seconds"
+    ],
+    "ground_truth": 3,
+    "response": "To calculate the best possible elapsed times for the parallel program running on multiple processors, we can use Amdahl's Law. Amdahl's Law states that the speedup of a program using multiple processors is limited by the sequential portion of the program.\n\nGiven:\n- Total execution time on a single processor = 100 seconds\n- Sequential portion = 40% of 100 seconds = 40 seconds\n- Parallel portion = 100 seconds - 40 seconds = 60 seconds\n\n**For 2 processors:**\n1. The sequential portion still takes 40 seconds.\n2. The parallel portion can be divided among the 2 processors, so the time taken for the parallel portion is \\( \\frac{60 \\text{ seconds}}{2} = 30 \\text{ seconds} \\).\n\nTotal time with 2 processors = Sequential time + Parallel time = 40 seconds + 30 seconds = 70 seconds.\n\n**For 4 processors:**\n1. The sequential portion still takes 40 seconds.\n2. The parallel portion can be divided among the 4 processors, so the time taken for the parallel portion is \\( \\frac{60 \\text{ seconds}}{4} = 15 \\text{ seconds} \\).\n\nTotal time with 4 processors = Sequential time + Parallel time = 40 seconds + 15 seconds = 55 seconds.\n\nThus, the best possible elapsed times for this program running with 2 and 4 processors are 70 seconds and 55 seconds, respectively.\n\nThe correct option is:  \n**D) 70 and 55 seconds**",
+    "grades": []
+  },
+  {
+    "question_id": "76",
+    "question": "Let A be a finite set with m elements, and let B be a finite set with n elements. The number of distinct functions mapping A into B is",
+    "options": [
+      "n^m",
+      "n!/(n - m)!",
+      "n!",
+      "n!/(m!(n - m)!)"
+    ],
+    "ground_truth": 0,
+    "response": "The correct option is **A) n^m**.\n\n**Explanation**: A function from a set \\( A \\) with \\( m \\) elements to a set \\( B \\) with \\( n \\) elements assigns to each element of \\( A \\) exactly one element from \\( B \\). \n\nFor each element of \\( A \\), there are \\( n \\) choices in \\( B \\). Since there are \\( m \\) elements in \\( A \\), and each element can be mapped independently, the total number of distinct functions from \\( A \\) to \\( B \\) is given by the product of choices for each element of \\( A\\):\n\n\\[\nn \\times n \\times \\ldots \\times n \\quad (m \\text{ times}) = n^m\n\\]\n\nThus, the number of distinct functions mapping \\( A \\) into \\( B \\) is \\( n^m \\).",
+    "grades": []
+  },
+  {
+    "question_id": "92",
+    "question": "Let G = (V, E) be a connected, undirected graph, and let a and b be two distinct vertices in V. Let P_1 be the problem of finding a shortest simple path between a and b, and let P_2 be the problem of finding a longest simple path between a and b. Which of the following statements about P_1 and P_2 is true?",
+    "options": [
+      "Both P_1 and P_2 can be solved in polynomial time.",
+      "P_1 can be solved in polynomial time but P_2 is not known to be solvable in polynomial time.",
+      "P_1 is not known to be solvable in polynomial time but P_2 can be solved in polynomial time.",
+      "It is not known whether either P_1 or P_2 can be solved in polynomial time."
+    ],
+    "ground_truth": 1,
+    "response": "The correct option is: **B) P_1 can be solved in polynomial time but P_2 is not known to be solvable in polynomial time.**\n\n**Explanation:**\n\nThe problem P_1, which involves finding the shortest simple path between two distinct vertices in a connected, undirected graph, can be efficiently solved using algorithms such as Dijkstra's algorithm or the Breadth-First Search (BFS) algorithm (for unweighted graphs). Both of these algorithms run in polynomial time.\n\nOn the other hand, the problem P_2, which requires finding the longest simple path between two vertices in a graph, is known to be NP-hard. This means that there is no known polynomial-time algorithm to solve this problem in general cases. The longest simple path problem is much more complex and difficult because it involves exploring many potential paths without revisiting vertices, making it computationally intensive.\n\nTherefore, the statement that P_1 can be solved in polynomial time while P_2 is not known to be solvable in polynomial time is correct.",
+    "grades": []
+  },
+  {
+    "question_id": "48",
+    "question": "Array A contains 256 elements of 4 bytes each. Its first element is stored at physical address 4,096.\nArray B contains 512 elements of 4 bytes each. Its first element is stored at physical address 8,192.\nAssume that only arrays A and B can be cached in an initially empty, physically addressed, physically tagged, direct-mapped, 2K-byte cache with an 8-byte block size. The following loop is then executed.\nfor (i = 0; i < 256; i++)\n        A[i] = A[i] + B[2*i];\nDuring the execution of the loop, how many bytes will be written to memory if the cache has a write-back policy?",
+    "options": [
+      "0",
+      "256",
+      "1024",
+      "2000"
+    ],
+    "ground_truth": 0,
+    "response": "To determine how many bytes will be written to memory during the execution of the loop, we need to analyze how the cache operates under a write-back policy and the access patterns of the arrays A and B.\n\n### Given Information:\n- **Array A**: \n  - Contains 256 elements of 4 bytes each.\n  - Total size = 256 elements * 4 bytes/element = 1024 bytes.\n  - First element stored at physical address = 4096.\n\n- **Array B**: \n  - Contains 512 elements of 4 bytes each.\n  - Total size = 512 elements * 4 bytes/element = 2048 bytes.\n  - First element stored at physical address = 8192.\n\n- **Cache Details**:\n  - Cache size = 2K bytes = 2048 bytes.\n  - Block size = 8 bytes.\n  - Number of cache blocks = 2048 bytes / 8 bytes/block = 256 blocks.\n\n### Loop Analysis:\nThe loop iterates over the first 256 elements of array A, performing the following operation:\n``` \nA[i] = A[i] + B[2*i];\n```\n\n- **Access Pattern**:\n  - For each iteration `i`, it accesses:\n    - `A[i]`: This accesses the `i`-th element of array A.\n    - `B[2*i]`: This accesses the `2*i`-th element of array B.\n\n### Cache Behavior:\n**Cache for Array A**:\n- Each element of A is 4 bytes. \n- 8-byte blocks can hold 2 elements of A.\n  \n  Physical addresses of A:\n- A[0] = 4096 (block 0)\n- A[1] = 4100 (block 0)\n- A[2] = 4104 (block 1)\n- A[3] = 4108 (block 1)\n- ...\n- A[255] = 5120 (block 127).\n\nSince the block size is 8 bytes, when we access A[i], we will load a block containing A[i] and A[i+1] (if `i` is even). When `i` is odd, it accesses the previous block, meaning the cache effectively will hold the data needed for the next access.\n\n**Cache for Array B**:\n- Each element of B is also 4 bytes.\n  \n  Physical addresses of B:\n- B[0] = 819",
+    "grades": []
+  },
+  {
+    "question_id": "45",
+    "question": "In multiprogrammed systems it is advantageous if some programs such as editors and compilers can be shared by several users. Which of the following must be true of multiprogrammed systems in order that a single copy of a program can be shared by several users?\nI. The program is a macro.\nII. The program is recursive.\nIII. The program is reentrant.",
+    "options": [
+      "I only",
+      "II only",
+      "III only",
+      "II and III only"
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is **C) III only**.\n\n**Explanation:**  \nIn multiprogrammed systems, for a single copy of a program to be shared by several users, the program must be reentrant. A reentrant program is designed so that it can be interrupted and safely called again (\"re-entered\") before its previous executions are complete. This means that multiple processes can use the same instance of the program without interfering with each other.\n\n- **I. The program is a macro:** This is not necessarily true. Macros are a way to define code snippets but do not inherently ensure that the program can be shared safely among multiple users.\n  \n- **II. The program is recursive:** While a recursive program can be shared, being recursive does not guarantee that it can be safely executed by multiple users simultaneously. Recursion can complicate shared execution if not handled correctly.\n\n- **III. The program is reentrant:** This is the correct condition that allows multiple users to share a single copy of the program safely. \n\nThus, only statement III is necessary and sufficient for the scenario described, making **C) III only** the correct answer.",
+    "grades": []
+  },
+  {
+    "question_id": "72",
+    "question": "Which of the following pairs of 8-bit, two's-complement numbers will result in overflow when the members of the pairs are added?",
+    "options": [
+      "11111111, 00000001",
+      "00000001, 10000000",
+      "11111111, 10000001",
+      "10000001, 10101010"
+    ],
+    "ground_truth": 3,
+    "response": "To determine which pairs of 8-bit, two's-complement numbers will result in overflow when added, we need to examine the binary representation of these numbers and the rules for overflow in two's complement arithmetic.\n\nIn two's complement:\n- The most significant bit (MSB) indicates the sign of the number: 0 for positive and 1 for negative.\n- Overflow occurs when adding two positive numbers results in a negative number, or when adding two negative numbers results in a positive number.\n\nLet's analyze each option:\n\nA) **11111111, 00000001**  \n- 11111111 = -1 (negative)  \n- 00000001 = +1 (positive)  \n- Adding: -1 + 1 = 0 (no overflow).\n\nB) **00000001, 10000000**  \n- 00000001 = +1 (positive)  \n- 10000000 = -128 (negative)  \n- Adding: +1 + (-128) = -127 (no overflow).\n\nC) **11111111, 10000001**  \n- 11111111 = -1 (negative)  \n- 10000001 = -127 (negative)  \n- Adding: -1 + (-127) = -128 (no overflow).\n\nD) **10000001, 10101010**  \n- 10000001 = -127 (negative)  \n- 10101010 = -86 (negative)  \n- Adding: -127 + (-86) = -213, which cannot be represented in 8 bits (the result would be 10011011, which is positive). This indicates overflow.\n\nTherefore, the correct answer is **D) 10000001, 10101010** because adding two negative numbers resulted in a positive value, which indicates overflow in two's-complement arithmetic.",
+    "grades": []
+  },
+  {
+    "question_id": "56",
+    "question": "Two expressions E and F are said to be unifiable if there are substitutions for the variables of E and F that make the expressions lexically identical. In the following three expressions, only w, x, y, and z are variables.\nI. f(w,w)\nII. f(x,1)\nIII. f(y,g(z))\nWhich pairs of these expressions is (are) pairs of unifiable expressions?",
+    "options": [
+      "(I, II) only",
+      "(I, III) only",
+      "(II, III) only",
+      "(I, II) and (I, III) only"
+    ],
+    "ground_truth": 3,
+    "response": "To determine which pairs of the expressions I, II, and III are unifiable, we need to analyze each pair and see if we can find substitutions for the variables such that the expressions become lexically identical.\n\n1. **Expression I**: \\( f(w, w) \\)\n2. **Expression II**: \\( f(x, 1) \\)\n3. **Expression III**: \\( f(y, g(z)) \\)\n\nLet's consider the possible pairs:\n\n### Pair (I, II):\n- **I**: \\( f(w, w) \\)\n- **II**: \\( f(x, 1) \\)\n\nFor these to be unifiable, we need:\n1. The first argument: \\( w \\) must equal \\( x \\). We can substitute \\( x \\) with \\( w \\).\n2. The second argument: \\( w \\) must equal \\( 1 \\). This is problematic because \\( w \\) is a variable and cannot be equal to a constant.\n\nThus, **(I, II)** are not unifiable.\n\n### Pair (I, III):\n- **I**: \\( f(w, w) \\)\n- **III**: \\( f(y, g(z)) \\)\n\nFor these to be unifiable:\n1. The first argument: \\( w \\) must equal \\( y \\). We can substitute \\( y \\) with \\( w \\).\n2. The second argument: \\( w \\) must equal \\( g(z) \\). This is also problematic, as \\( w \\) is a variable and cannot be equal to a function \\( g(z) \\).\n\nThus, **(I, III)** are also not unifiable.\n\n### Pair (II, III):\n- **II**: \\( f(x, 1) \\)\n- **III**: \\( f(y, g(z)) \\)\n\nFor these to be unifiable:\n1. The first argument: \\( x \\) must equal \\( y \\). We can substitute \\( y \\) with \\( x \\).\n2. The second argument: \\( 1 \\) must equal \\( g(z) \\). This is problematic because \\( 1 \\) is a constant and cannot be equal to a function \\( g(z) \\).\n\nThus, **(II, III)** are not unifiable either.\n\nSince none of the pairs are unifiable, the answer is that there are no pairs of unifiable expressions among the given options.\n\nThus, none of the options A, B, C, or D are",
+    "grades": []
+  },
+  {
+    "question_id": "55",
+    "question": "Assume that any assignment statement can be executed in unit time. If as many identical processors as needed are used, what is the minimum number of time units needed to execute the assignments\nA := B + C\nB := A - B\nC := A * E\nD := A/F\nE := B - C\nF := A + B\nwith the same result as if the assignments were executed in the order shown?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is **B) 2**.\n\nExplanation:\nThe assignments provided can be analyzed for their dependencies:\n\n1. **A := B + C**  \n   This assignment sets A based on the values of B and C.\n\n2. **B := A - B**  \n   This assignment depends on A, which is defined in the first assignment.\n\n3. **C := A * E**  \n   This assignment depends on A and E. However, E is not defined until after A is defined.\n\n4. **D := A/F**  \n   This assignment depends on both A and F. F is defined later, as it depends on A and B.\n\n5. **E := B - C**  \n   This assignment depends on both B and C, which are defined later in the sequence.\n\n6. **F := A + B**  \n   This assignment depends on A and B, which are defined earlier.\n\nNow, let's evaluate the execution:\n\n- In the first time unit, we can compute A := B + C since it only depends on B and C.\n- Once A is computed, we can compute B := A - B, C := A * E, and F := A + B in the second time unit. However, we cannot compute C := A * E and E := B - C simultaneously in this time unit because E depends on B and C, and C depends on A and E.\n\nThus, in two time units, we can achieve the required updates:\n- **Time Unit 1**: Compute A := B + C.\n- **Time Unit 2**: Compute B := A - B and F := A + B, and we can also compute E := B - C if we manage the dependencies carefully.\n\nTherefore, we can execute all assignments in a minimum of 2 time units with sufficient processors available to handle operations in parallel, respecting the dependencies.",
+    "grades": []
+  },
+  {
+    "question_id": "10",
+    "question": "Mergesort works by splitting a list of n numbers in half, sorting each half recursively, and merging the two halves. Which of the following data structures will allow mergesort to work in O(n log n) time?\nI. A singly linked list\nII. A doubly linked list\nIII. An array",
+    "options": [
+      "None",
+      "III only",
+      "I and II only",
+      "I, II, and III"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is **D) I, II, and III**.\n\n**Explanation:**  \nMergesort is an efficient sorting algorithm that operates in O(n log n) time. It works by recursively dividing the list into halves, sorting those halves, and then merging them back together.\n\n1. **Singly linked list:** Mergesort can be implemented on a singly linked list. The splitting and merging operations can be done in linear time, and since the list is divided into halves, the overall time complexity remains O(n log n).\n\n2. **Doubly linked list:** Similar to a singly linked list, mergesort can be applied to a doubly linked list as well. The merging step can be efficiently handled using the pointers in the doubly linked list, and the time complexity remains O(n log n).\n\n3. **Array:** Mergesort is commonly implemented on arrays. The splitting can be done using indices, and merging can be done using auxiliary arrays. The time complexity for mergesort on an array is also O(n log n).\n\nSince mergesort can be effectively applied to all three data structures, the correct answer is **D) I, II, and III**.",
+    "grades": []
+  },
+  {
+    "question_id": "73",
+    "question": "Two computers communicate with each other by sending data packets across a local area network. The size of these packets is 1,000 bytes. The network has the capacity to carry 1,000 packets per second. The CPU time required to execute the network protocol to send one packet is 10 milliseconds. The maximum rate at which one computer can send data to another is approximately",
+    "options": [
+      "10,000 bytes/second",
+      "25,000 bytes/ second",
+      "100,000 bytes/ second",
+      "500,000 bytes/ second"
+    ],
+    "ground_truth": 2,
+    "response": "To determine the maximum rate at which one computer can send data to another, we need to consider both the packet size and the network's capacity to handle packets.\n\n1. **Packet Size**: Each packet is 1,000 bytes.\n2. **Network Capacity**: The network can carry 1,000 packets per second.\n3. **CPU Time for Protocol Execution**: The CPU time required to execute the network protocol to send one packet is 10 milliseconds.\n\n**Calculating the Maximum Data Rate**:\n- The first step is to find out how many packets can be sent in one second: \n  - Since the network can carry 1,000 packets per second, that is our upper limit for packet transmission per second.\n\n- Next, calculate the total amount of data that can be sent in one second:\n  - Each packet is 1,000 bytes, so:\n  \\[\n  \\text{Total Data per second} = \\text{Number of Packets} \\times \\text{Packet Size} = 1,000 \\text{ packets/second} \\times 1,000 \\text{ bytes/packet} = 1,000,000 \\text{ bytes/second}\n  \\]\n\n- However, we also need to account for the time taken by the CPU to process the sending of packets:\n  - Each packet takes 10 milliseconds to process, so the time taken to send 1,000 packets (in milliseconds) is:\n  \\[\n  \\text{Total Time for 1,000 packets} = 1,000 \\text{ packets} \\times 10 \\text{ milliseconds/packet} = 10,000 \\text{ milliseconds} = 10 \\text{ seconds}\n  \\]\n\n  This means that if the CPU is limited by the protocol processing time, it can only send packets at a certain rate.\n\nNow considering the maximum effective data rate, we have two limits:\n- The network capacity allows for 1,000 packets per second yielding 1,000,000 bytes/second.\n- The protocol execution limits the sending rate based on CPU time.\n\n**Final Conclusion**:\nThe CPU time limits the sending rate. Each packet takes 10 milliseconds, so in one second, the maximum number of packets that can be sent based on CPU time is:\n\\[\n\\frac{1 \\text{ second}}{10 \\text{ milliseconds}} = 100 \\text{ packets/second}\n\\]\n\nNow, calculate the data sent with this limit",
+    "grades": []
+  },
+  {
+    "question_id": "78",
+    "question": "The hit ratio of a cache memory is the percentage of accesses (reads and writes) for which data are found in the cache. Write-through is a policy whereby every write operation updates main memory. Write-back is a policy whereby a write operation to a line found in the cache does not affect main memory until the line is evicted from the cache. Write-allocation is a policy whereby a cache line is allocated and loaded on a write-miss. If it is assumed that write-allocation is always used, which of the following is true?",
+    "options": [
+      "Write-back usually results in a better hit ratio than write-through.",
+      "Write-through usually results in a better hit ratio than write-back.",
+      "The percentage of write operations resulting in a main memory operation will never be larger for write-back than for write-through.",
+      "The percentage of write operations resulting in a main memory operation will never be larger for writethrough than for write-back."
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is: **C) The percentage of write operations resulting in a main memory operation will never be larger for write-back than for write-through.**\n\n**Explanation:**\nIn a write-through cache policy, every write operation is immediately written to both the cache and the main memory. This means that for every write, there is a corresponding operation in main memory.\n\nIn contrast, the write-back policy only writes back to main memory when a cache line is evicted. This means that during normal write operations, if the data is in the cache, no write operation occurs in main memory until the line is evicted. Therefore, if the cache line is not evicted after a write operation, there will be no immediate main memory operation.\n\nGiven that write-back can delay writes to main memory until eviction, the percentage of write operations that result in a main memory operation will always be less than or equal to that of write-through, where every write goes to main memory. Therefore, option C accurately describes this relationship.",
+    "grades": []
+  },
+  {
+    "question_id": "15",
+    "question": "For all strings x, the function x^M is defined recursively as follows.\ne^M= e, and\nif w is a string and a is a string with length 1, then\n(aw)^M = aw^Ma.\nLet a be a string with length 1, and let x and y be arbitrary strings. Which of the following is true?",
+    "options": [
+      "a^M = a",
+      "(ax)^M = (xa)^M",
+      "(xy)^M = y^Mx^M",
+      "None of the above"
+    ],
+    "ground_truth": 3,
+    "response": "To analyze the recursive definition of the function \\( x^M \\), let's break down the options.\n\n1. **Base Case**: The base case states that \\( e^M = e \\), where \\( e \\) is the empty string.\n\n2. **Recursive Case**: For a string \\( w \\) and a single character string \\( a \\):\n   \\[\n   (aw)^M = aw^Ma\n   \\]\n   This means that when you have a string formed by a single character \\( a \\) followed by another string \\( w \\), the function \\( aw^M \\) constructs a new string that starts with \\( a \\), appends \\( w^M \\), and then ends with \\( a \\).\n\nNow, let's evaluate each option:\n\n**A)** \\( a^M = a \\)\n\n- Applying the definition to \\( a^M \\):\n  \\[\n  a^M = (a \\cdot e)^M = a \\cdot e^M \\cdot a = a \\cdot e \\cdot a = a \\cdot a = aa\n  \\]\n- Therefore, \\( a^M = aa \\), which is not equal to \\( a \\) (since \\( a \\) has length 1 and \\( aa \\) has length 2). So, this option is false.\n\n**B)** \\( (ax)^M = (xa)^M \\)\n\n- Let's compute \\( (ax)^M \\):\n  \\[\n  (ax)^M = a \\cdot x^M \\cdot a\n  \\]\n- Now compute \\( (xa)^M \\):\n  \\[\n  (xa)^M = x^M \\cdot a \\cdot x^M \\cdot a\n  \\]\n- These two results are not equal in general unless \\( x \\) is empty. So, this option is also false.\n\n**C)** \\( (xy)^M = y^M x^M \\)\n\n- We compute \\( (xy)^M \\):\n  \\[\n  (xy)^M = x \\cdot y^M \\cdot x\n  \\]\n- Now compute \\( y^M x^M \\):\n  \\[\n  y^M x^M = y \\cdot x^M \\cdot y\n  \\]\n- These two results are not equal in general, so this option is also false.\n\nSince all of the options A, B, and C are false, the correct",
+    "grades": []
+  },
+  {
+    "question_id": "70",
+    "question": "Which of the following considerations applies (apply) to choosing the page size in a paging system?\nI. An advantage of larger pages is that they lead to smaller page tables.\nII. An advantage of smaller pages is that they lead to less waste due to internal fragmentation.\nIII. Normally, the dominant factor in disk access time is not dependent on page length, so longer pages can be used advantageously.",
+    "options": [
+      "I only",
+      "II only",
+      "I and III only",
+      "I, II, and III"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is **D) I, II, and III**.\n\n**Explanation:**\n- **I. An advantage of larger pages is that they lead to smaller page tables.** This is true because larger pages mean fewer total pages for the same amount of memory, which leads to a smaller page table size (since the page table needs to map fewer pages).\n  \n- **II. An advantage of smaller pages is that they lead to less waste due to internal fragmentation.** This statement is also true. Smaller pages reduce the amount of unused space within a page, which is known as internal fragmentation. When pages are smaller, the chances of having unused space in the last page of a process's allocation are reduced.\n\n- **III. Normally, the dominant factor in disk access time is not dependent on page length, so longer pages can be used advantageously.** This statement is generally considered true because the time it takes to access a disk page (seek time, rotational latency) is primarily determined by the disk's physical characteristics rather than the page's length. Therefore, using longer pages can lead to fewer total I/O operations, which can be advantageous.\n\nSince all three statements are valid considerations when choosing page sizes in a paging system, option D is the correct answer.",
+    "grades": []
+  },
+  {
+    "question_id": "1",
+    "question": "An integer c is a common divisor of two integers x and y if and only if c is a divisor of x and c is a divisor of y. Which of the following sets of integers could possibly be the set of all common divisors of two integers?",
+    "options": [
+      "{-6,-2, -1, 1, 2, 6}",
+      "{-6, -2, -1, 0, 1, 2, 6}",
+      "{-6, -3, -2, -1, 1, 2, 3, 6}",
+      "{-6, -3, -2, -1, 0, 1, 2, 3, 6}"
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is **C) {-6, -3, -2, -1, 1, 2, 3, 6}**.\n\n### Explanation:\nA common divisor of two integers x and y is a number that divides both x and y without leaving a remainder. The set of all common divisors includes both negative and positive divisors of the greatest common divisor (gcd) of x and y.\n\n1. **Option A**: {-6, -2, -1, 1, 2, 6} \n   - This set contains integers that could be divisors of some integers, but it lacks a divisor of zero, and zero itself is not included, which is acceptable. However, it could represent common divisors of a pair of integers whose gcd is 6.\n   \n2. **Option B**: {-6, -2, -1, 0, 1, 2, 6}\n   - This set includes 0. Since 0 is not a divisor of any non-zero integer, it cannot be a common divisor of any pair of integers. Therefore, this set cannot be a valid set of common divisors.\n\n3. **Option C**: {-6, -3, -2, -1, 1, 2, 3, 6}\n   - This set includes both positive and negative integers that all divide 6. The gcd of two integers (e.g., 6 and 12) would include all these divisors, making it a valid set of common divisors.\n\n4. **Option D**: {-6, -3, -2, -1, 0, 1, 2, 3, 6}\n   - Similar to Option B, this set includes 0, which makes it invalid for the same reason mentioned above.\n\nThus, **Option C** is the only valid set of all common divisors of two integers.",
+    "grades": []
+  },
+  {
+    "question_id": "50",
+    "question": "If a malicious process is granted temporary administrator-level access to a system",
+    "options": [
+      "the threat is over as soon as the process is killed",
+      "the threat is over after the operating system is rebooted",
+      "the thread is over after rebooting the machine and replacing files that show a virus infection",
+      "the threat is often permanent until the entire disk is wiped clean"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is: **D) the threat is often permanent until the entire disk is wiped clean.**\n\n**Explanation:** When a malicious process is granted temporary administrator-level access, it can potentially make significant changes to the system, including installing persistent malware, creating backdoors, or modifying system files. Simply killing the process (Option A) or rebooting the system (Option B) does not eliminate these changes, as the malware can survive these actions. Option C suggests replacing infected files, which might mitigate some issues but does not guarantee the complete removal of all malicious components. Therefore, Option D is correct because in many cases, especially with advanced malware, the only way to ensure that the system is clean is to wipe the entire disk and reinstall the operating system.",
+    "grades": []
+  },
+  {
+    "question_id": "65",
+    "question": "Let T (n) be defined by T(1) = 7 and T(n + 1) = 3n + T(n) for all integers n \u2265 1. Which of the following represents the order of growth of T(n) as a function of n?",
+    "options": [
+      "\u0398(n)",
+      "\u0398(n log n)",
+      "\u0398(n^2)",
+      "\u0398(n^2 log n)"
+    ],
+    "ground_truth": 2,
+    "response": "To analyze the recurrence relation \\( T(n) \\), we start with the given definitions:\n\n1. \\( T(1) = 7 \\)\n2. \\( T(n + 1) = 3n + T(n) \\)\n\nWe will expand \\( T(n) \\) step by step to identify its growth rate:\n\n- For \\( n = 1 \\):\n  \\[\n  T(2) = 3 \\cdot 1 + T(1) = 3 + 7 = 10\n  \\]\n\n- For \\( n = 2 \\):\n  \\[\n  T(3) = 3 \\cdot 2 + T(2) = 6 + 10 = 16\n  \\]\n\n- For \\( n = 3 \\):\n  \\[\n  T(4) = 3 \\cdot 3 + T(3) = 9 + 16 = 25\n  \\]\n\n- For \\( n = 4 \\):\n  \\[\n  T(5) = 3 \\cdot 4 + T(4) = 12 + 25 = 37\n  \\]\n\nLet\u2019s derive a general formula for \\( T(n) \\). We can rewrite the recurrence:\n\n\\[\nT(n + 1) - T(n) = 3n\n\\]\n\nThis indicates that the difference \\( T(n + 1) - T(n) \\) grows linearly with \\( n \\). We can sum these differences from \\( n = 1 \\) to \\( n - 1 \\):\n\n\\[\nT(n) - T(1) = \\sum_{k=1}^{n-1} (T(k + 1) - T(k)) = \\sum_{k=1}^{n-1} 3k\n\\]\n\nThe sum \\( \\sum_{k=1}^{n-1} k \\) is given by the formula \\( \\frac{(n-1)n}{2} \\). Thus:\n\n\\[\nT(n) - T(1) = 3 \\cdot \\frac{(n-1)n}{2} = \\frac{3(n-1)n}{2}\n\\]\n\nNow, substituting \\( T(1) = 7 \\):\n\n\\[\nT(n) = 7 + \\frac{3(n-1)n}{2} = 7 + \\frac{3n^2 - 3n}{2}\n\\]\n\nThis can be simplified",
+    "grades": []
+  },
+  {
+    "question_id": "9",
+    "question": "Suppose sharing of tiles in a multilevel directory structure is achieved with directory entries that are links pointing to a node containing information about a shared file. Information in this node includes (1) the owner of the file, (2) a count of the number of links to the tile, and (3) the disk block numbers of the file. What is a primary drawback to this approach to sharing?",
+    "options": [
+      "If the owner modifies the file, another user who does not share will see the changes.",
+      "If the owner renames the file, other users will not be able to access it.",
+      "If the owner is allowed to delete a file, dangling links may result.",
+      "If any user who shares the file appends to it, others who share it will not be able to access the new disk blocks."
+    ],
+    "ground_truth": 2,
+    "response": "The correct option is: **C) If the owner is allowed to delete a file, dangling links may result.**\n\n**Explanation:** In the described multilevel directory structure, when multiple users share a file through links to a shared node, if the owner of the file deletes it, the shared links that point to that file's node will become invalid. This results in dangling links, as those links will point to a file that no longer exists. Hence, users who attempt to access the file through these links would encounter an error or a broken reference, leading to access issues. This is a primary drawback of allowing the owner to delete the file while other users still have links to it.",
+    "grades": []
+  },
+  {
+    "question_id": "91",
+    "question": "At time 0, five jobs are available for execution on a single processor, with service times of 25, 15, 5, 3, and 2 time units. Which of the following is the minimum value of the average completion time of these jobs?",
+    "options": [
+      "50",
+      "208/5",
+      "92/5",
+      "10"
+    ],
+    "ground_truth": 2,
+    "response": "To find the minimum average completion time for the jobs, we should execute them in order of their service times, from shortest to longest. This is known as the Shortest Job First (SJF) scheduling algorithm, which minimizes the average completion time.\n\nThe service times of the jobs are:\n- Job 1: 25 time units\n- Job 2: 15 time units\n- Job 3: 5 time units\n- Job 4: 3 time units\n- Job 5: 2 time units\n\nArranging these in ascending order gives us:\n- Job 5: 2 time units\n- Job 4: 3 time units\n- Job 3: 5 time units\n- Job 2: 15 time units\n- Job 1: 25 time units\n\nNow, we calculate the completion times for each job:\n- Completion time of Job 5 = 2\n- Completion time of Job 4 = 2 + 3 = 5\n- Completion time of Job 3 = 5 + 5 = 10\n- Completion time of Job 2 = 10 + 15 = 25\n- Completion time of Job 1 = 25 + 25 = 50\n\nNow, the completion times are:\n- Job 5: 2\n- Job 4: 5\n- Job 3: 10\n- Job 2: 25\n- Job 1: 50\n\nNext, we calculate the average completion time:\n\\[\n\\text{Average Completion Time} = \\frac{(2 + 5 + 10 + 25 + 50)}{5} = \\frac{92}{5}\n\\]\n\nThus, the minimum average completion time is \\(\\frac{92}{5}\\).\n\nThe correct answer is:\n**C) 92/5**",
+    "grades": []
+  },
+  {
+    "question_id": "41",
+    "question": "Which of the following sets of bit strings CANNOT be described with a regular expression?",
+    "options": [
+      "All bit strings whose number of zeros is a multiple of five",
+      "All bit strings starting with a zero and ending with a one",
+      "All bit strings with an even number of zeros",
+      "All bit strings with more ones than zeros"
+    ],
+    "ground_truth": 3,
+    "response": "The correct option is **D) All bit strings with more ones than zeros**.\n\n**Explanation:**\nRegular expressions can describe certain types of patterns and constraints, but they have limitations, particularly when it comes to counting and maintaining relationships between counts of different symbols. \n\n- **Option A** describes all bit strings whose number of zeros is a multiple of five. This can be expressed using a regular expression by grouping zeros in blocks of five and allowing any number of ones in between or around those blocks.\n\n- **Option B** describes all bit strings starting with a zero and ending with a one. This can be straightforwardly expressed as `0(0|1)*1`, which captures any string that starts with `0`, ends with `1`, and has any combination of `0`s and `1`s in between.\n\n- **Option C** describes all bit strings with an even number of zeros. This can be captured by a regular expression that ensures pairs of zeros are matched, allowing any combination of ones in between.\n\n- **Option D**, however, states that there are more ones than zeros. This requires keeping track of the counts of both ones and zeros and ensuring one count exceeds the other. This relationship cannot be expressed with a regular expression because regular expressions cannot count or maintain state in a way that allows for the comparison of counts between different symbols.\n\nThus, **D** is the correct answer, as it cannot be described with a regular expression.",
+    "grades": []
+  },
+  {
+    "question_id": "42",
+    "question": "Which of the following conditions can be expressed by a Boolean formula in the Boolean variables p_1, p_2, p_3, p_4 and the connectives \u2227,\u2228 (without \u00ac)?\nI. At least three of p_1, p_2, p_3, p_4 are true.\nII. Exactly three of p_1, p_2, p_3, p_4 are true.\nIII. An even number of p_1, p_2, p_3, p_4 are true.",
+    "options": [
+      "I only",
+      "II only",
+      "III only",
+      "I and III"
+    ],
+    "ground_truth": 0,
+    "response": "To determine which of the conditions can be expressed using a Boolean formula with the variables \\( p_1, p_2, p_3, p_4 \\) and the connectives \\( \\land \\) and \\( \\lor \\) (without using negation), we can analyze each condition:\n\nI. **At least three of \\( p_1, p_2, p_3, p_4 \\) are true.**  \nThis can be expressed as the disjunction of the combinations where three or four variables are true:\n- \\( (p_1 \\land p_2 \\land p_3) \\lor (p_1 \\land p_2 \\land p_4) \\lor (p_1 \\land p_3 \\land p_4) \\lor (p_2 \\land p_3 \\land p_4) \\lor (p_1 \\land p_2 \\land p_3 \\land p_4) \\).\n\nThus, this condition can be expressed in the required form.\n\nII. **Exactly three of \\( p_1, p_2, p_3, p_4 \\) are true.**  \nThis requires a more specific combination of the variables being true while ensuring one is false:\n- \\( (p_1 \\land p_2 \\land p_3 \\land \\neg p_4) \\lor (p_1 \\land p_2 \\land p_4 \\land \\neg p_3) \\lor (p_1 \\land p_3 \\land p_4 \\land \\neg p_2) \\lor (p_2 \\land p_3 \\land p_4 \\land \\neg p_1) \\).\nHowever, since negation is not allowed, we cannot express the condition \"exactly three\" without using negation. Thus, this condition cannot be expressed.\n\nIII. **An even number of \\( p_1, p_2, p_3, p_4 \\) are true.**  \nThis condition can be satisfied when there are 0, 2, or 4 true variables. The combinations can be expressed as:\n- 0 true: \\( \\neg p_1 \\land \\neg p_2 \\land \\neg p_3 \\land \\neg p_4 \\) (which we cannot express)\n- 2 true: \\( (p_1 \\land p_2 \\land \\neg p_3 \\land \\",
+    "grades": []
+  }
+]
