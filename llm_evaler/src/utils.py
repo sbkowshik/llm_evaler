@@ -14,7 +14,10 @@ def sample_for_grading(
     already_graded: List[str] = None,
 ) -> List[str]:
     """
-    Sample responses for human grading.
+    Sample responses for human grading using the EvalGen approach.
+    
+    This function leverages the confidence scores calculated by the evaluator,
+    which are based on assertion selectivity and execution results.
     
     Args:
         evaluator: Evaluator instance
@@ -31,8 +34,10 @@ def sample_for_grading(
     ungraded_ids = []
     for response in evaluator.responses:
         response_id = response["question_id"]
-        if response_id not in already_graded:
-            ungraded_ids.append(response_id)
+        # Skip responses that are already graded or in the already_graded list
+        if response_id in evaluator.human_grades or response_id in already_graded:
+            continue
+        ungraded_ids.append(response_id)
     
     # If no ungraded responses left, return empty list
     if not ungraded_ids:
@@ -46,6 +51,25 @@ def sample_for_grading(
     human_grades = evaluator.get_grades()
     if len(human_grades) < MIN_GRADES_REQUIRED or not evaluator.results:
         return random.sample(ungraded_ids, num_samples)
+    
+    # If the evaluator has the new sampling method implemented, use it
+    if hasattr(evaluator, 'sample_response_for_grading'):
+        sampled_ids = []
+        for _ in range(num_samples):
+            # Try to get a response ID using the evaluator's sampling strategy
+            response_id = evaluator.sample_response_for_grading()
+            if response_id and response_id not in sampled_ids and response_id not in already_graded:
+                sampled_ids.append(response_id)
+        
+        # If we couldn't get enough samples, add some random ones
+        if len(sampled_ids) < num_samples:
+            remaining_ids = [id for id in ungraded_ids if id not in sampled_ids]
+            if remaining_ids:
+                sampled_ids.extend(random.sample(remaining_ids, min(num_samples - len(sampled_ids), len(remaining_ids))))
+        
+        return sampled_ids
+    
+    # Fall back to the old sampling strategies if the new method isn't available
     
     # If using the alternating strategy
     if strategy == "alternating":
@@ -75,6 +99,9 @@ def sample_by_confidence(
     """
     Sample responses based on confidence scores.
     
+    This uses the confidence scores calculated by the evaluator, which are based on
+    assertion selectivity and execution results according to the EvalGen approach.
+    
     Args:
         evaluator: Evaluator instance
         num_samples: Number of responses to sample
@@ -84,34 +111,41 @@ def sample_by_confidence(
     Returns:
         List of sampled response IDs
     """
-    # Calculate confidence scores
-    confidence_scores = {}
-    
-    for response_id in response_ids:
-        # Count how many assertions the response passes
-        if response_id not in evaluator.results:
-            # Default to 0.5 if no results yet
-            confidence_scores[response_id] = 0.5
-            continue
+    # Get confidence scores from the evaluator if available
+    if hasattr(evaluator, 'get_confidence_scores'):
+        confidence_scores = evaluator.get_confidence_scores()
+    else:
+        # Calculate confidence scores manually as fallback
+        confidence_scores = {}
+        
+        for response_id in response_ids:
+            # Count how many assertions the response passes
+            if response_id not in evaluator.results:
+                # Default to 0.5 if no results yet
+                confidence_scores[response_id] = 0.5
+                continue
+                
+            result = evaluator.results[response_id]
+            passes = 0
+            total = 0
             
-        result = evaluator.results[response_id]
-        passes = 0
-        total = 0
-        
-        for assertion_result in result["assertions"].values():
-            if assertion_result["error"] is None:  # Only count assertions without errors
-                total += 1
-                if assertion_result["passes"]:
-                    passes += 1
-        
-        # Confidence score is the proportion of assertions passed
-        confidence_scores[response_id] = passes / total if total > 0 else 0.5
+            for assertion_result in result["assertions"].values():
+                if assertion_result["error"] is None:  # Only count assertions without errors
+                    total += 1
+                    if assertion_result["passes"]:
+                        passes += 1
+            
+            # Confidence score is the proportion of assertions passed
+            confidence_scores[response_id] = passes / total if total > 0 else 0.5
+    
+    # Make sure we only look at response_ids in our list
+    filtered_scores = {id: confidence_scores.get(id, 0.5) for id in response_ids}
     
     # Sort by confidence score
     if confidence_type == "high":
-        sorted_ids = sorted(response_ids, key=lambda x: confidence_scores[x], reverse=True)
+        sorted_ids = sorted(response_ids, key=lambda x: filtered_scores[x], reverse=True)
     else:  # low confidence
-        sorted_ids = sorted(response_ids, key=lambda x: confidence_scores[x])
+        sorted_ids = sorted(response_ids, key=lambda x: filtered_scores[x])
     
     # Return the top N
     return sorted_ids[:num_samples]

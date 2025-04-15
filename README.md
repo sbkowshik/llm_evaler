@@ -1,52 +1,57 @@
-# LLM Evaler: EvalGen Implementation
+# LLM Evaluation System
 
-A framework for evaluating LLM outputs with evaluations that align with human preferences.
+This repository implements the EvalGen approach for aligning automated LLM evaluations with human preferences, as described in the paper "EvalGen: From Criteria Prompts to Aligned Evaluations."
 
-## Overview
+## System Architecture
 
-LLM Evaler is an implementation of the EvalGen methodology, designed to create evaluations of LLM outputs that align with human preferences. It addresses the challenge of validating LLM-generated content by combining automated assertions with human feedback in an iterative, mixed-initiative workflow.
+The EvalGen system consists of three main components:
 
-The system supports:
-- Generating evaluation criteria suggestions
-- Creating multiple assertion variants with different prompting strategies
-- Collecting human feedback through binary grading
-- Aligning assertions with human preferences
-- Supporting criteria drift and refinement
-- Transparent reporting of alignment metrics
+1. **Criteria Suggestion**: Uses GPT-4 to propose binary evaluation criteria in natural language (e.g., response length or tone).
+
+2. **Candidate Assertion Synthesis and Execution**: Generates multiple candidate assertions (as code or LLM prompts) for each criterion, and executes them on LLM pipeline outputs.
+
+3. **Grading Sampler**: Samples LLM outputs for the user to grade (thumbs up/down), then dynamically updates alignment metrics for each candidate assertion.
 
 ## Key Features
 
-### 1. Mixed-Initiative Criteria Generation
-- Automatic suggestion of evaluation criteria based on task requirements
-- Support for manual refinement and criteria evolution
-- Tracking of criteria drift based on human observations during grading
+- **Confidence-based Sampling**: Intelligently samples LLM outputs for grading based on assertion selectivity and confidence scores.
+- **Multiple Assertion Variants**: Generates and tests multiple implementations for each criterion to find the most aligned with user preferences.
+- **Alignment Metrics**: Uses coverage (ability to catch bad outputs) and false failure rate (ability to not fail good outputs) to measure assertion quality.
+- **Streaming Architecture**: Progressively updates all metrics as more grades are collected.
 
-### 2. Multiple Assertion Variants
-- Generation of diverse LLM-based assertion implementations
-- Different prompting strategies to evaluate the same criteria
-- Comparative analysis to identify which variant best aligns with human judgments
+## How It Works
 
-### 3. Human-in-the-Loop Grading
-- Simple thumbs-up/thumbs-down grading interface
-- Capture of criteria drift notes during grading
-- Intelligent sampling of examples to maximize information gain
+1. Users select evaluation criteria from suggestions or add their own.
+2. The system asynchronously generates multiple candidate assertions for each criterion.
+3. All assertions are executed on the LLM outputs, and selectivity estimates are updated.
+4. The system samples LLM outputs for the user to grade, prioritizing potentially problematic outputs.
+5. As the user grades, alignment metrics are updated to identify the best assertions.
+6. The final set of assertions is selected based on their alignment with user grades.
 
-### 4. Alignment Metrics
-- Coverage: How well assertions identify "bad" outputs
-- False Failure Rate: How often assertions incorrectly flag "good" outputs
-- Alignment Score: Harmonic mean of coverage and (1-FFR)
-- Transparent metrics for each criterion and assertion variant
+## Implementation Details
 
-### 5. Iterative Workflow
-- Support for evolving criteria definitions
-- Real-time updates to alignment metrics
-- Criteria history tracking and visualization
+The system is implemented with the following key components:
 
-### 6. Comprehensive Report Card
-- Detailed visualization of assertion performance
-- Variant comparison charts
-- Criteria evolution history
-- Exportable assertions for deployment
+- `alignment.py`: Computes alignment metrics between assertions and human grades.
+- `evaluator.py`: Runs assertions on LLM responses and stores results.
+- `assertion_generator.py`: Generates candidate assertions (code and LLM-based).
+- `utils.py`: Provides sampling strategies for human grading.
+
+## Key Changes in this Implementation
+
+This implementation differs from prior work in two main ways:
+
+1. It uses a streaming architecture that progressively updates alignment metrics as more human grades are collected.
+2. It employs a confidence-based sampling strategy that prioritizes outputs that are more likely to be of low quality.
+
+## Usage
+
+To use the system:
+
+1. Run assertions on LLM outputs to generate initial evaluations.
+2. Collect human grades on a subset of outputs using the grading interface.
+3. The system automatically selects the most aligned assertions for each criterion.
+4. Use the selected assertions to evaluate new LLM outputs with confidence that they align with human preferences.
 
 ## Getting Started
 

@@ -2,6 +2,7 @@
 
 import time
 import asyncio
+import random
 from typing import Dict, List, Optional, Tuple, Any
 
 from tqdm.auto import tqdm
@@ -33,6 +34,7 @@ class Evaluator:
         self.results = {}  # Will store evaluation results
         self.assertion_stats = {}  # Will store statistics about each assertion
         self.human_grades = {}  # Will store human grades
+        self.confidence_scores = {}  # Will store confidence scores for outputs
         
         # Initialize assertion statistics
         for criterion_id, assertion_list in self.assertions.items():
@@ -44,6 +46,11 @@ class Evaluator:
                     "errors": 0,
                     "selectivity": 0.5,  # Default value, will be updated
                 }
+        
+        # Initialize confidence scores for all responses
+        for response in self.responses:
+            response_id = response["question_id"]
+            self.confidence_scores[response_id] = 0.5  # Default neutral confidence
 
     def run_assertions(self, show_progress: bool = True, max_concurrent: int = 10) -> Dict:
         """
@@ -159,6 +166,9 @@ class Evaluator:
                 for assertion in criterion_assertions:
                     if assertion["id"] == assertion_id:
                         assertion["selectivity"] = stats["selectivity"]
+        
+        # Update confidence scores after running all assertions
+        self._update_confidence_scores()
         
         return self.results
     
@@ -292,8 +302,11 @@ class Evaluator:
                 if comment:
                     grade_obj["comment"] = comment
                 
-                self.responses[i]["grades"].append(grade_obj)
+                self.responses[i]["grades"] = self.responses[i].get("grades", []) + [grade_obj]
                 self.human_grades[response_id] = grade
+                
+                # Update confidence scores after adding a new grade
+                self._update_confidence_scores()
                 return
         
         # If we get here, the response ID was not found
@@ -403,4 +416,133 @@ class Evaluator:
             
             metrics_by_criterion[criterion_id] = criterion_metrics
         
-        return metrics_by_criterion 
+        return metrics_by_criterion
+    
+    def _update_confidence_scores(self) -> None:
+        """
+        Update confidence scores for all responses based on assertion results and selectivity.
+        
+        This implements the EvalGen approach where confidence scores estimate the likelihood
+        that an LLM output is of low quality, based on assertion results and selectivity.
+        """
+        # Skip if we don't have any assertion results yet
+        if not self.results:
+            return
+            
+        # For each response
+        for response_id in self.results:
+            # Skip responses that have already been graded by a human
+            if response_id in self.human_grades:
+                continue
+                
+            # Reset confidence score
+            confidence = 0.5  # Default neutral confidence
+            
+            # Count assertions that failed this response
+            failed_assertions = []
+            
+            # For each assertion
+            for criterion_id, assertion_list in self.assertions.items():
+                for assertion in assertion_list:
+                    assertion_id = assertion["id"]
+                    
+                    # Skip if this assertion hasn't been run on this response
+                    if assertion_id not in self.results[response_id]["assertions"]:
+                        continue
+                        
+                    # Get assertion result
+                    result = self.results[response_id]["assertions"][assertion_id]
+                    
+                    # Skip assertions with errors
+                    if result.get("error"):
+                        continue
+                        
+                    # If assertion failed, add it to the list
+                    if not result["passes"]:
+                        failed_assertions.append(assertion_id)
+            
+            # Update confidence score based on failed assertions and their selectivity
+            if failed_assertions:
+                # For each failed assertion, adjust confidence based on selectivity
+                for assertion_id in failed_assertions:
+                    selectivity = self.assertion_stats[assertion_id]["selectivity"]
+                    # The lower the selectivity (fewer passes), the more significant a failure is
+                    confidence += (1 - selectivity) / len(failed_assertions)
+                
+                # Cap confidence at 1.0
+                confidence = min(confidence, 1.0)
+            
+            # Store updated confidence score
+            self.confidence_scores[response_id] = confidence
+    
+    def sample_response_for_grading(self) -> Optional[str]:
+        """
+        Sample an LLM output for the user to grade based on confidence scores.
+        
+        This implements the Grading Sampler component of EvalGen, which samples
+        LLM outputs for the user to give binary feedback on.
+        
+        Returns:
+            ID of the response to grade, or None if all responses have been graded
+        """
+        # Get ungraded responses
+        ungraded_ids = [
+            response_id for response_id in self.results
+            if response_id not in self.human_grades
+        ]
+        
+        # If all responses have been graded, return None
+        if not ungraded_ids:
+            return None
+        
+        # Use confidence scores to bias sampling toward potentially poor outputs
+        if self.confidence_scores:
+            # Sort ungraded responses by confidence score (highest first)
+            sorted_ids = sorted(
+                ungraded_ids,
+                key=lambda id: self.confidence_scores.get(id, 0.5),
+                reverse=True
+            )
+            
+            # Implement a sampling strategy biased toward high confidence scores
+            # but with some exploration of lower-confidence responses
+            
+            # 70% of the time, pick from the top 30% of responses
+            if random.random() < 0.7:
+                top_n = max(1, int(len(sorted_ids) * 0.3))
+                return random.choice(sorted_ids[:top_n])
+            # 30% of the time, pick from all ungraded responses
+            else:
+                return random.choice(ungraded_ids)
+        else:
+            # If no confidence scores, pick randomly
+            return random.choice(ungraded_ids)
+    
+    def get_next_response_to_grade(self) -> Optional[Dict]:
+        """
+        Get the next response the user should grade, with its details.
+        
+        This implements the Grading Sampler component of EvalGen, providing
+        the next LLM output for the user to grade.
+        
+        Returns:
+            Response object to grade, or None if all responses have been graded
+        """
+        # Sample a response ID
+        response_id = self.sample_response_for_grading()
+        
+        # If no ungraded responses, return None
+        if response_id is None:
+            return None
+        
+        # Get the response details
+        return self.get_response_with_results(response_id)
+    
+    def get_confidence_scores(self) -> Dict[str, float]:
+        """
+        Get confidence scores for all responses.
+        
+        Returns:
+            Dictionary mapping response IDs to confidence scores
+        """
+        return self.confidence_scores.copy() 

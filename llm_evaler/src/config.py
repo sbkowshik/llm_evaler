@@ -38,17 +38,24 @@ D) {options[3]}
 # Evaluation settings
 DEFAULT_CRITERIA = [
     {
-        "name": "Correct Option Selection",
-        "description": "Response correctly identifies an option letter (A, B, C, or D)",
+        "name": "Concise explanation",
+        "description": "Response is concise and to the point",
         "implementation_type": "llm",
     },
     {
-        "name": "Explanation Quality",
-        "description": "Explanation is clear, logical, and supports the selected option",
+        "name": "Straightforward explanation",
+        "description": "Explanation is straightforward and easy to understand",
         "implementation_type": "llm",
     },
 ]
 
 # Alignment settings
 DEFAULT_FALSE_FAILURE_RATE_THRESHOLD = 0.15  # 15%
-MIN_GRADES_REQUIRED = 5  # Minimum number of grades needed before analyzing alignment 
+MIN_GRADES_REQUIRED = 15  # Minimum number of grades needed before analyzing alignment 
+
+# Workflow settings
+# In the EvalGen workflow, users grade LLM outputs (not assertions directly)
+# Assertion accuracy is determined by how well the assertion's pass/fail results
+# align with human grades on the same outputs, not by direct human evaluation
+GRADE_OUTPUTS_NOT_ASSERTIONS = True  # Users grade outputs, not assertions
+SHOW_ASSERTION_RESULTS_BY_DEFAULT = False  # Hide assertion results by default to focus on output grading 
