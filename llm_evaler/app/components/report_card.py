@@ -603,37 +603,7 @@ def report_card(
         selected_summary = create_selected_assertions_summary(evaluator, selected_assertions, metrics)
         
         if selected_summary:
-            # Display summary table
-            summary_df = pd.DataFrame(selected_summary)
-            st.dataframe(
-                summary_df,
-                column_config={
-                    "criterion": st.column_config.TextColumn("Criterion"),
-                    "variant_name": st.column_config.TextColumn("Variant"),
-                    "description": st.column_config.TextColumn("Approach"),
-                    "coverage": st.column_config.ProgressColumn(
-                        "Coverage",
-                        format="%.1f%%",
-                        min_value=0,
-                        max_value=100,
-                    ),
-                    "false_failure_rate": st.column_config.ProgressColumn(
-                        "FFR",
-                        format="%.1f%%",
-                        min_value=0,
-                        max_value=100,
-                    ),
-                    "alignment_score": st.column_config.ProgressColumn(
-                        "Alignment",
-                        format="%.1f%%",
-                        min_value=0,
-                        max_value=100,
-                    ),
-                    "total_variants": st.column_config.NumberColumn("Total Variants")
-                },
-                hide_index=True,
-                use_container_width=True
-            )
+            # Summary table has been removed per user request
             
             # Show the assertion implementations
             for assertion in selected_summary:
