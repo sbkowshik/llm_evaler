@@ -145,8 +145,11 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Acknowledgments
 
-- Based on the EvalGen methodology
-- Utilizes OpenAI's GPT models for assertion generation and evaluation
-- Built with Streamlit for the user interface 
+# 1.Why this paper is important and where it is limited
+The paper tackles a critical issue in the LLM ecosystem—ensuring that automated evaluations (often conducted by other LLMs) align with human judgment. By combining automated LLM-generated evaluations with human feedback, the authors bridge the gap between efficiency and accuracy, reducing over-reliance on potentially flawed automated systems.
+
+# 2.⁠ ⁠If given a chance, how and where you would advance your research
+Automated learning through RLHF ^ Will be discussed in the call
+
+
