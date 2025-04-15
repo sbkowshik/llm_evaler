@@ -110,21 +110,6 @@ This will launch the web interface at http://localhost:8501 by default.
 - Explore variant performance and metrics
 - Export selected assertions for deployment
 
-## Data Flow
-
-```
-┌─────────────┐     ┌────────────┐     ┌─────────────┐     ┌────────────┐     ┌──────────┐
-│    Prompt   │────▶│  Generate  │────▶│   Define    │────▶│  Generate  │────▶│   Grade  │
-│Configuration│     │ Responses  │     │  Criteria   │     │ Assertions │     │Responses │
-└─────────────┘     └────────────┘     └─────────────┘     └────────────┘     └────┬─────┘
-                                             ▲                                      │
-                                             │                                      │
-                                             │                                      ▼
-                                      ┌──────┴───────┐                        ┌──────────┐
-                                      │   Criteria   │◀───────────────────────│  Report  │
-                                      │Drift & Update│                        │   Card   │
-                                      └──────────────┘                        └──────────┘
-```
 
 ## Extending the System
 
